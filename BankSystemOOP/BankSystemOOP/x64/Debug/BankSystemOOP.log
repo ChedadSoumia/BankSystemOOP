@@ -17,15 +17,24 @@ C:\Users\dell\Desktop\ProjectsGithub\BankSystemOOP\BankSystemOOP\BankSystemOOP\c
 C:\Users\dell\Desktop\ProjectsGithub\BankSystemOOP\BankSystemOOP\BankSystemOOP\clsString.h(372,22): warning C4267: 'initializing': conversion from 'size_t' to 'short', possible loss of data
   (compiling source file 'BankSystemOOP.cpp')
   
-C:\Users\dell\Desktop\ProjectsGithub\BankSystemOOP\BankSystemOOP\BankSystemOOP\clsBankClient.h(47,144): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\dell\Desktop\ProjectsGithub\BankSystemOOP\BankSystemOOP\BankSystemOOP\clsBankClient.h(48,144): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   (compiling source file 'BankSystemOOP.cpp')
   
-C:\Users\dell\Desktop\ProjectsGithub\BankSystemOOP\BankSystemOOP\BankSystemOOP\clsInputValidate.h(98,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\dell\Desktop\ProjectsGithub\BankSystemOOP\BankSystemOOP\BankSystemOOP\clsBankClient.h(287,10): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
   (compiling source file 'BankSystemOOP.cpp')
   
-C:\Users\dell\Desktop\ProjectsGithub\BankSystemOOP\BankSystemOOP\BankSystemOOP\clsInputValidate.h(102,26): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\dell\Desktop\ProjectsGithub\BankSystemOOP\BankSystemOOP\BankSystemOOP\clsInputValidate.h(119,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   (compiling source file 'BankSystemOOP.cpp')
   
-C:\Users\dell\Desktop\ProjectsGithub\BankSystemOOP\BankSystemOOP\BankSystemOOP\BankSystemOOP.cpp(23,62): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\dell\Desktop\ProjectsGithub\BankSystemOOP\BankSystemOOP\BankSystemOOP\clsBankClient.h(239,1): warning C4715: 'clsBankClient::Save': not all control paths return a value
+C:\Users\dell\Desktop\ProjectsGithub\BankSystemOOP\BankSystemOOP\BankSystemOOP\clsInputValidate.h(123,26): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'BankSystemOOP.cpp')
+  
+C:\Users\dell\Desktop\ProjectsGithub\BankSystemOOP\BankSystemOOP\BankSystemOOP\clsUtil.h(67,5): warning C4102: 'defualt': unreferenced label
+  (compiling source file 'BankSystemOOP.cpp')
+  
+C:\Users\dell\Desktop\ProjectsGithub\BankSystemOOP\BankSystemOOP\BankSystemOOP\clsAddNewClientScreen.h(30,66): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'BankSystemOOP.cpp')
+  
+C:\Users\dell\Desktop\ProjectsGithub\BankSystemOOP\BankSystemOOP\BankSystemOOP\BankSystemOOP.cpp(85,56): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\dell\Desktop\ProjectsGithub\BankSystemOOP\BankSystemOOP\BankSystemOOP\clsBankClient.h(254,1): warning C4715: 'clsBankClient::Save': not all control paths return a value
   BankSystemOOP.vcxproj -> C:\Users\dell\Desktop\ProjectsGithub\BankSystemOOP\BankSystemOOP\x64\Debug\BankSystemOOP.exe

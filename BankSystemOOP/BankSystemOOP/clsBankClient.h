@@ -18,6 +18,7 @@ private:
 	string _AccountNumber;
 	string _PinCode;
 	float _AccountBalance;
+	bool _MarkForDelete = false;
 	
 
 
@@ -79,10 +80,13 @@ private:
 		if (MyFile.is_open())
 		{
 
-			for (clsBankClient C : vClients)
+			for (clsBankClient &C : vClients)
 			{
-				DataLine = _ConverClientObjectToLine(C);
-				MyFile << DataLine << endl;
+				if(C.MarkForDelete == false)
+				{
+					DataLine = _ConverClientObjectToLine(C);
+					MyFile << DataLine << endl;
+				}
 
 			}
 
@@ -111,6 +115,7 @@ private:
 		_AddDataLineToFile(_ConverClientObjectToLine(*this));
 
 	}
+
 	void _AddDataLineToFile(string  stDataLine)
 	{
 		fstream MyFile;
@@ -125,6 +130,9 @@ private:
 		}
 
 	}
+
+
+
 public :
 
 	clsBankClient(enMode Mode, string FirstName, string LastName, string Email, string Phone, string AccountNumber , string PinCode , float AccountBalance)
@@ -159,6 +167,13 @@ public :
 	}
 	__declspec (property(get = GetAccountBalance, put = SetAccountBalance)) float AccountBalance;
 
+	void SetMarkForDelete(bool MarkForDelete) {
+		_MarkForDelete = MarkForDelete;
+	}
+	bool GetMarkForDelete() {
+		return _MarkForDelete;
+	}
+	__declspec (property(get = GetMarkForDelete, put = SetMarkForDelete)) bool MarkForDelete;
 
 
 
@@ -238,21 +253,41 @@ public :
 
 	}
 
+	bool Delete() {
 
-	void Print()
-	{
-		cout << "\nClient Card:";
-		cout << "\n___________________";
-		cout << "\nFirstName   : " << FirstName;
-		cout << "\nLastName    : " << LastName;
-		cout << "\nFull Name   : " << FullName();
-		cout << "\nEmail       : " << Email;
-		cout << "\nPhone       : " << Phone;
-		cout << "\nAcc. Number : " << _AccountNumber;
-		cout << "\nPassword    : " << _PinCode;
-		cout << "\nBalance     : " << _AccountBalance;
-		cout << "\n___________________\n";
+		vector <clsBankClient> _vClients;
+		_vClients = _LoadClientsDataFromFile();
+
+		for (clsBankClient& C : _vClients) {
+			if (C.GetAccountNumber() == GetAccountNumber()) {
+				C.MarkForDelete = true;
+				break;
+			}
+		}
+		_SaveCleintsDataToFile(_vClients);
+
+		*this = _GetEmptyClientObject();
+
+		return true;
+	}
+
+	static vector <clsBankClient> GetClientsList() {
+		return _LoadClientsDataFromFile();
+	}
+
+
+	static float GetTotalBalances() {
+		vector <clsBankClient> vClients = clsBankClient::GetClientsList();
+
+		double TotalBalances = 0;
+
+		for (clsBankClient& C : vClients) {
+			TotalBalances += C.AccountBalance;
+		}
+		return TotalBalances;
 
 	}
+
+	
 };
 
