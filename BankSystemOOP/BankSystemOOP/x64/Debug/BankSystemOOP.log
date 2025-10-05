@@ -23,6 +23,12 @@ C:\Users\dell\Desktop\ProjectsGithub\BankSystemOOP\BankSystemOOP\BankSystemOOP\c
 C:\Users\dell\Desktop\ProjectsGithub\BankSystemOOP\BankSystemOOP\BankSystemOOP\clsBankClient.h(287,10): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
   (compiling source file 'BankSystemOOP.cpp')
   
+C:\Users\dell\Desktop\ProjectsGithub\BankSystemOOP\BankSystemOOP\BankSystemOOP\clsBankClient.h(292,22): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'BankSystemOOP.cpp')
+  
+C:\Users\dell\Desktop\ProjectsGithub\BankSystemOOP\BankSystemOOP\BankSystemOOP\clsBankClient.h(300,23): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'BankSystemOOP.cpp')
+  
 C:\Users\dell\Desktop\ProjectsGithub\BankSystemOOP\BankSystemOOP\BankSystemOOP\clsInputValidate.h(119,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   (compiling source file 'BankSystemOOP.cpp')
   
@@ -35,6 +41,17 @@ C:\Users\dell\Desktop\ProjectsGithub\BankSystemOOP\BankSystemOOP\BankSystemOOP\c
 C:\Users\dell\Desktop\ProjectsGithub\BankSystemOOP\BankSystemOOP\BankSystemOOP\clsAddNewClientScreen.h(30,66): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   (compiling source file 'BankSystemOOP.cpp')
   
-C:\Users\dell\Desktop\ProjectsGithub\BankSystemOOP\BankSystemOOP\BankSystemOOP\BankSystemOOP.cpp(85,56): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\dell\Desktop\ProjectsGithub\BankSystemOOP\BankSystemOOP\BankSystemOOP\clsUpdateClientScreen.h(28,66): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'BankSystemOOP.cpp')
+  
+C:\Users\dell\Desktop\ProjectsGithub\BankSystemOOP\BankSystemOOP\BankSystemOOP\clsTotalBalancesScreen.h(50,60): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+  (compiling source file 'BankSystemOOP.cpp')
+  
+C:\Users\dell\Desktop\ProjectsGithub\BankSystemOOP\BankSystemOOP\BankSystemOOP\clsMainScreen.h(155,37): warning C4566: character represented by universal-character-name '\U0001F195' cannot be represented in the current code page (1252)
+  (compiling source file 'BankSystemOOP.cpp')
+  
+C:\Users\dell\Desktop\ProjectsGithub\BankSystemOOP\BankSystemOOP\BankSystemOOP\clsMainScreen.h(156,37): warning C4566: character represented by universal-character-name '\U0001F5D1' cannot be represented in the current code page (1252)
+  (compiling source file 'BankSystemOOP.cpp')
+  
 C:\Users\dell\Desktop\ProjectsGithub\BankSystemOOP\BankSystemOOP\BankSystemOOP\clsBankClient.h(254,1): warning C4715: 'clsBankClient::Save': not all control paths return a value
   BankSystemOOP.vcxproj -> C:\Users\dell\Desktop\ProjectsGithub\BankSystemOOP\BankSystemOOP\x64\Debug\BankSystemOOP.exe

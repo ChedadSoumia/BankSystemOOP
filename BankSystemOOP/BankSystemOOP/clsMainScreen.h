@@ -1,7 +1,11 @@
-#pragma once
+﻿#pragma once
 #include "clsScreen.h"
 #include "clsClientListScreen.h"
 #include "clsAddNewClientScreen.h"
+#include "clsDeleteClientScreen.h"
+#include "clsUpdateClientScreen.h"
+#include "clsFindClientScreen.h"
+#include "clsTransactionsScreen.h"
 
 
 
@@ -25,7 +29,7 @@ private:
 
 	static void _GoBackToMainMenue() {
 
-		cout << setw(37) << left << "" << "\n\tPress any key to go back to Main Menue...\n";
+		cout << setw(37) << left << "" << "\n\tPress any key to go back to Main Menue...\n\n";
 		system("pause>0");
 
 		ShowMainMenue();
@@ -41,19 +45,20 @@ private:
 	}
 
 	static void _ShowDeleteClientScreen() {
-		cout << "\nDelete Clinet sceen soon..\n";
+		clsDeleteClientScreen::ShowDeleteClientScreen();
 	}
 
 	static void _ShowUpdateClientScreen() {
-		cout << "\nUpdate Clinet sceen soon..\n";
+		clsUpdateClientScreen::ShowUpdateClientScreen();
 	}
 
 	static void _ShowFindClientScreen() {
-		cout << "\nFind Clinet sceen soon..\n";
+		clsFindClientScreen::ShowFindClientScreen();
 	}
+	
 	static void _ShowTransactionsMenue()
 	{
-		cout << "\nTransactions Menue Will be here...\n";
+		clsTransactionsScreen::ShowTransactionsMenue();
 
 	}
 
@@ -147,8 +152,8 @@ public:
 		cout << setw(37) << left << "" << "\t\t\tMain Menue\n";
 		cout << setw(37) << left << "" << "===========================================\n";
 		cout << setw(37) << left << "" << "\t[1] Show Client List.\n";
-		cout << setw(37) << left << "" << "\t[2] Add New Client.\n";
-		cout << setw(37) << left << "" << "\t[3] Delete Client.\n";
+		cout << setw(37) << left << "" << "\t[2] 🆕 Add New Client.\n";
+		cout << setw(37) << left << "" << "\t[3] 🗑 Delete Client.\n";
 		cout << setw(37) << left << "" << "\t[4] Update Client Info.\n";
 		cout << setw(37) << left << "" << "\t[5] Find Client.\n";
 		cout << setw(37) << left << "" << "\t[6] Transactions.\n";
