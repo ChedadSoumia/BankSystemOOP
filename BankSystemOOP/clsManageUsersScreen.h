@@ -1,5 +1,10 @@
 #pragma once
 #include "clsScreen.h"
+#include "clsListUsersScreen.h"
+#include "clsAddNewUserScreen.h"
+#include "clsDeleteUserScreen.h"
+#include "clsUpdateUserScreen.h"
+#include "clsFindUserScreen.h"
 
 class clsManageUsersScreen : protected clsScreen
 {
@@ -24,6 +29,33 @@ private :
         system("pause>0");
         ShowManageUsersMenue();
     }
+    static void _ShowListUsersScreen() {
+        clsListUsersScreen::ShowUsersList();
+    }
+    static void _ShowAddNewUserScreen()
+    {
+        clsAddNewUserScreen::ShowAddNewUserScreen();
+
+    }
+
+
+    static void _ShowDeleteUserScreen()
+    {
+        clsDeleteUserScreen::ShowDeleteUserScreen();
+
+    }
+
+    static void _ShowUpdateUserScreen()
+    {
+        clsUpdateUserScreen::ShowUpdateUserScreen();
+
+    }
+
+    static void _ShowFindUserScreen()
+    {
+        clsFindUserScreen::ShowFindUserScreen();
+
+    }
 
 
     static void _PerformManageUsersMenueOption(enManageUsersMenueOptions ManageUsersMenueOption) {
@@ -31,35 +63,35 @@ private :
         case enManageUsersMenueOptions::eListUsers:
         {
             system("cls");
-            cout << "\nList Users will be here ...  \n";
+            _ShowListUsersScreen();
             _GoBackToManageUsersMenue();
             break;
         }
         case enManageUsersMenueOptions::eAddNewUser:
         {
             system("cls");
-            cout << "\nAdd new Users will be here ...  \n";
+            _ShowAddNewUserScreen();
             _GoBackToManageUsersMenue();
             break;
         }
         case enManageUsersMenueOptions::eDeleteUser:
         {
             system("cls");
-            cout << "\nDelete Users will be here ...  \n";
+            _ShowDeleteUserScreen();
             _GoBackToManageUsersMenue();
             break;
         }
         case enManageUsersMenueOptions::eUpdateUser:
         {
             system("cls");
-            cout << "\nUpdate Users will be here ...  \n";
+            _ShowUpdateUserScreen();
             _GoBackToManageUsersMenue();
             break;
         }
         case enManageUsersMenueOptions::eFindUser:
         {
             system("cls");
-            cout << "\nFind Users will be here ...  \n";
+            _ShowFindUserScreen();
             _GoBackToManageUsersMenue();
             break;
         }

@@ -7,22 +7,21 @@ class clsWithdrawScreen : clsScreen
 private:
     static void _Print(clsBankClient Client)
     {
-        cout << "\nClient Card:";
+        cout << "\n" << clsLang::ToLang("ClientCard", LangChosen) << " :";
         cout << "\n___________________";
-        cout << "\nFirstName   : " << Client.FirstName;
-        cout << "\nLastName    : " << Client.LastName;
-        cout << "\nFull Name   : " << Client.FullName();
-        cout << "\nEmail       : " << Client.Email;
-        cout << "\nPhone       : " << Client.Phone;
-        cout << "\nAcc. Number : " << Client.GetAccountNumber();
-        cout << "\nPassword    : " << Client.PinCode;
-        cout << "\nBalance     : " << Client.AccountBalance;
+        cout << "\n" << clsLang::ToLang("ClientName", LangChosen) << " : " << Client.FirstName;
+        cout << "\n" << clsLang::ToLang("LastName", LangChosen) << " : " << Client.LastName;
+        cout << "\n" << clsLang::ToLang("Email", LangChosen) << " : " << Client.Email;
+        cout << "\n" << clsLang::ToLang("Phone", LangChosen) << " : " << Client.Phone;
+        cout << "\n" << clsLang::ToLang("AccountNumber", LangChosen) << " : " << Client.GetAccountNumber();
+        cout << "\n" << clsLang::ToLang("PinCode", LangChosen) << " : " << Client.PinCode;
+        cout << "\n" << clsLang::ToLang("Balance", LangChosen) << " : " << Client.AccountBalance;
         cout << "\n___________________\n";
 
     }
     static string ReadAccountNumber() {
         string AccountNumber = "";
-        cout << "\nEnter Account Number : \n";
+        cout << "\n" << clsLang::ToLang("EnterNumClient", LangChosen) << ": ";
         cin >> AccountNumber;
         return AccountNumber;
     }

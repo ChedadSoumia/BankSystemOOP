@@ -151,6 +151,12 @@ private:
 
 
 public:
+    enum enPermissions {
+        eAll = -1, pListClients = 1, pAddNewClient = 2, pDeleteClient = 4,
+        pUpdateClients = 8, pFindClient = 16, pTranactions = 32, pManageUsers = 64
+    };
+
+
     clsUser(enMode Mode, string FirstName, string LastName,
         string Email, string Phone, string UserName, string Password,
         int Permissions) :
@@ -198,7 +204,7 @@ public:
         _Permissions = Permissions;
     }
 
-    __declspec(property(get = GetPermissions, put = SetPermissions)) string Permissions;
+    __declspec(property(get = GetPermissions, put = SetPermissions)) int Permissions;
 
     static clsUser Find(string UserName)
     {
