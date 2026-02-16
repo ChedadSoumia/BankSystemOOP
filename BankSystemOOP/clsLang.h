@@ -10,7 +10,8 @@ static map<string, string> EN = {
     {"login", "Login"},
     {"MainMenue", "Main Munue"},
     {"ChooseOption", "Choose what do you want to do? [1 to 8]"},
-    {"PressAnyKey", "Press any key to go back to Main Menu"},
+    {"PressAnyKey", "Press any key to go back to"},
+    {"MainMenu","Main Menu"},
     {"ShowClients", "Show Client List"},
     {"NoClients","No Clients Available In the System"},
     {"ClientListScreen", "Client List Screen"},
@@ -36,6 +37,8 @@ static map<string, string> EN = {
     {"DLTSucc","Client Deleted Successfully"},
     {"ErrorDLT","Error Client Was not Deleted"},
     {"UpdateClient", "Update Client Info"},
+    {"UpdateClientScreen","Update Client Screen"},
+    {"UpdatedAccountClient","Account Updated Successfully"},
     {"FindClient", "Find Client"},
     {"FINDCSc","Find Client Screen"},
     {"ClientNotFound","Account number is not found, choose another one "},
@@ -48,11 +51,23 @@ static map<string, string> EN = {
     {"GoBackManageMenue","Press any key to go back to Manage Users Menue"},
     {"ManageUSersMenue","Manage Users Menu"},
     {"ListUsers","List Users"},
-    {"AddNewUser","Add New User"},
+    {"NewUser","Add New User"},
     {"DLTUser","Delete User"},
     {"UPUser","Update User"},
     {"FIndUser","Find User"},
+    {"UsersMenue","Manage Users Menue"},
     {"MainMenue","Main Menue"},
+
+
+
+
+
+
+
+
+
+
+
     {"Logout", "Logout"},
     {"withdraw", "Withdraw Money"},
     {"deposit", "Deposit Money"},
@@ -64,7 +79,8 @@ static map<string, string> EN = {
 static map<string, string> FR = {
     {"login", "Connexion"},
     {"ChooseOption", "Veuillez choisir une option [1 à 8] :"},
-    {"PressAnyKey", "Appuyez sur une touche pour revenir au menu principal"},
+    {"PressAnyKey", "Appuyez sur une touche pour revenir au "},
+    {"MainMenu","Main menu principal"},
     {"ShowClients", "Afficher la liste des clients"},
     {"NoClients","Il n’y a aucun client enregistré dans le système"},
     {"ClientListScreen", "Liste des clients"},
@@ -91,6 +107,8 @@ static map<string, string> FR = {
     {"DLTSucc","Client supprimé avec succès"},
     {"ErrorDLT","Erreur : le client n’a pas été supprimé"},
     {"UpdateClient", "Mettre à jour les informations du client"},
+    {"UpdateClientScreen", "Écran de mise à jour du client"},
+    {"UpdatedAccountClient", "Compte mis à jour avec succès"},
     {"FindClient", "Rechercher un client"},
     {"FINDCSc","Écran de recherche du client"},
     {"ClientNotFound","Numéro de compte introuvable, veuillez en choisir un autre "},
@@ -103,11 +121,12 @@ static map<string, string> FR = {
     {"GoBackManageMenue", "Appuyez sur une touche pour revenir au menu de gestion des utilisateurs"},
     {"ManageUSersMenue", "Menu de gestion des utilisateurs"},
     {"ListUsers", "Lister les utilisateurs"},
-    {"AddNewUser", "Ajouter un nouvel utilisateur"},
+    {"NewUser", "Ajouter un nouvel utilisateur"},
     {"DLTUser", "Supprimer un utilisateur"},
     {"UPUser", "Mettre à jour un utilisateur"},
     {"FIndUser", "Rechercher un utilisateur"},
-    {"MainMenue", "Menu principal"}
+    {"UsersMenue", "Menu de gestion des utilisateurs"},
+    {"MainMenue", "Menu principal"},
     {"Logout", "Déconnexion"},
     {"MainMenue", "Menu Principal"},
     {"withdraw", "Retirer de l'argent"},

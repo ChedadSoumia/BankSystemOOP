@@ -27,25 +27,64 @@ private :
 
 
     static void _PerformManageUsersMenueOption(enManageUsersMenueOptions ManageUsersMenueOption) {
-
+        switch (ManageUsersMenueOption) {
+        case enManageUsersMenueOptions::eListUsers:
+        {
+            system("cls");
+            cout << "\nList Users will be here ...  \n";
+            _GoBackToManageUsersMenue();
+            break;
+        }
+        case enManageUsersMenueOptions::eAddNewUser:
+        {
+            system("cls");
+            cout << "\nAdd new Users will be here ...  \n";
+            _GoBackToManageUsersMenue();
+            break;
+        }
+        case enManageUsersMenueOptions::eDeleteUser:
+        {
+            system("cls");
+            cout << "\nDelete Users will be here ...  \n";
+            _GoBackToManageUsersMenue();
+            break;
+        }
+        case enManageUsersMenueOptions::eUpdateUser:
+        {
+            system("cls");
+            cout << "\nUpdate Users will be here ...  \n";
+            _GoBackToManageUsersMenue();
+            break;
+        }
+        case enManageUsersMenueOptions::eFindUser:
+        {
+            system("cls");
+            cout << "\nFind Users will be here ...  \n";
+            _GoBackToManageUsersMenue();
+            break;
+        }
+        case enManageUsersMenueOptions::eMainMenue:
+        {
+        }
+        }
     }
 
 public:
 	static void ShowManageUsersMenue() {
 
 		system("cls");
-		_DrawScreenHeader("\t" + clsLang::ToLang("UsersSCR",LangChosen));
+		_DrawScreenHeader("\t" + clsLang::ToLang("ManageUSersMenue",LangChosen));
 
 
         cout << setw(37) << left << "" << "===========================================\n";
-        cout << setw(37) << left << "" << "\t\t  Manage Users Menue\n";
+        cout << setw(37) << left << "" << "\t\t  " << clsLang::ToLang("UsersMenue", LangChosen) << "\n";
         cout << setw(37) << left << "" << "===========================================\n";
-        cout << setw(37) << left << "" << "\t[1] List Users.\n";
-        cout << setw(37) << left << "" << "\t[2] Add New User.\n";
-        cout << setw(37) << left << "" << "\t[3] Delete User.\n";
-        cout << setw(37) << left << "" << "\t[4] Update User.\n";
-        cout << setw(37) << left << "" << "\t[5] Find User.\n";
-        cout << setw(37) << left << "" << "\t[6] Main Menue.\n";
+        cout << setw(37) << left << "" << "\t[1] " << clsLang::ToLang("ListUsers", LangChosen) << ".\n";
+        cout << setw(37) << left << "" << "\t[2] " << clsLang::ToLang("NewUser", LangChosen) << ".\n";
+        cout << setw(37) << left << "" << "\t[3] " << clsLang::ToLang("DLTUser", LangChosen) << ".\n";
+        cout << setw(37) << left << "" << "\t[4] " << clsLang::ToLang("UPUser", LangChosen) << ".\n";
+        cout << setw(37) << left << "" << "\t[5] " << clsLang::ToLang("FIndUser", LangChosen) << ".\n";
+        cout << setw(37) << left << "" << "\t[6] "<< clsLang::ToLang("MainMenue",LangChosen) << ".\n";
         cout << setw(37) << left << "" << "===========================================\n";
 
         _PerformManageUsersMenueOption((enManageUsersMenueOptions)ReadManageUsersMenueOption());

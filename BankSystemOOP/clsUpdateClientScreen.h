@@ -9,22 +9,28 @@ class clsUpdateClientScreen : protected clsScreen
 private:
     static void _ReadClientInfo(clsBankClient& Client) {
 
-        cout << "\nEnter FirstName: ";
+        cout << "\n" << clsLang::ToLang("EnterWord", LangChosen) <<
+            " " << clsLang::ToLang("FirstName", LangChosen) << " : ";
         Client.FirstName = clsInputValidate::ReadString();
 
-        cout << "\nEnter LastName: ";
+        cout << "\n" << clsLang::ToLang("EnterWord", LangChosen) <<
+            " " << clsLang::ToLang("LastName", LangChosen) << " : ";
         Client.LastName = clsInputValidate::ReadString();
 
-        cout << "\nEnter Email: ";
+        cout << "\n" << clsLang::ToLang("EnterWord", LangChosen) <<
+            " " << clsLang::ToLang("Email", LangChosen) << " : ";
         Client.Email = clsInputValidate::ReadString();
 
-        cout << "\nEnter Phone: ";
+        cout << "\n" << clsLang::ToLang("EnterWord", LangChosen) <<
+            " " << clsLang::ToLang("Phone", LangChosen) << " : ";
         Client.Phone = clsInputValidate::ReadString();
 
-        cout << "\nEnter PinCode: ";
+        cout << "\n" << clsLang::ToLang("EnterWord", LangChosen) <<
+            " " << clsLang::ToLang("PinCode", LangChosen) << " : ";
         Client.PinCode = clsInputValidate::ReadString();
 
-        cout << "\nEnter Account Balance: ";
+        cout << "\n" << clsLang::ToLang("EnterWord", LangChosen) <<
+            " " << clsLang::ToLang("balance", LangChosen) << " : ";
         Client.AccountBalance = clsInputValidate::ReadFloatNumber();
 
     }
@@ -45,7 +51,7 @@ private:
 
 public:
     static void ShowUpdateClientScreen() {
-        _DrawScreenHeader("Update Client Screen");
+        _DrawScreenHeader(clsLang::ToLang("UpdateClientScreen", LangChosen));
         string AccountNumber = "";
         cout << "\n" << clsLang::ToLang("EnterNumClient", LangChosen) << ": ";
         AccountNumber = clsInputValidate::ReadString();
@@ -58,7 +64,7 @@ public:
         clsBankClient Client = clsBankClient::Find(AccountNumber);
         _Print(Client);
 
-        cout << "\n\nUpdate Client Info:";
+        cout << "\n\n" << clsLang::ToLang("UpdateClient", LangChosen) << ":";
         cout << "\n____________________\n";
 
         _ReadClientInfo(Client);
@@ -68,11 +74,11 @@ public:
 
         switch (SaveResult) {
         case clsBankClient::enSaveResults::svSucceeded:
-            cout << "\nAccount Updated Successfully :-)\n";
+            cout << "\n" << clsLang::ToLang("ErrorEmpty", LangChosen) << ":-)\n";
             _Print(Client);
             break;
         case clsBankClient::enSaveResults::svFaildEmptyObject:
-            cout << "\nError account was not saved because it's Empty";
+            cout << "\n"  << clsLang::ToLang("ErrorEmpty",LangChosen);
             break;
         };
 

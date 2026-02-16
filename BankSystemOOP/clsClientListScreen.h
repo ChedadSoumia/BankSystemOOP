@@ -33,7 +33,7 @@ public:
         cout << "| " << left << setw(12) << clsLang::ToLang("Phone", LangChosen);
         cout << "| " << left << setw(15) << clsLang::ToLang("AccountNumber", LangChosen);
         cout << "| " << left << setw(10) << clsLang::ToLang("PinCode", LangChosen);
-        cout << "| " << left << setw(12) << clsLang::ToLang("ClientName", LangChosen);
+        cout << "| " << left << setw(12) << clsLang::ToLang("Balance", LangChosen);
         cout << "\n___________________________________________________________";
         cout << "_________________________________________________________________\n" << endl;
 

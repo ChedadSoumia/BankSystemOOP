@@ -31,7 +31,8 @@ private:
 
 	static void _GoBackToMainMenue() {
 
-		cout << setw(37) << left << "" << "\n\t" << clsLang::ToLang("PressAnyKey", LangChosen) << "...\n\n";
+		cout << setw(37) << left << "" << "\n\t" << clsLang::ToLang("PressAnyKey", LangChosen) << " " << 
+			clsLang::ToLang("MainMenu", LangChosen) << "...\n\n";
 		system("pause>0");
 
 		ShowMainMenue();
@@ -73,7 +74,6 @@ private:
 	static void _ShowEndScreen()
 	{
 		
-
 	}
 
 	static void _PerfromMainMenueOption(enMainMenueOptions MainMenueOptions) {
