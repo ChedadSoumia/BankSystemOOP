@@ -86,6 +86,10 @@ static map<string, string> EN = {
     {"DleteThisUserQST","Are you sure you want to delete this User"},
     {"UDSucces","User Deleted Successfully"},
     {"ErrorDU","Error User Was not Deleted"},
+    {"LoginScreen","Login Screen"},
+    {"InvalisUP","Invlaid Username/Password!"},
+    {"EUser","Enter Username?"},
+    {"EPass","Enter Password?"},
     {"Logout", "Logout"},
     {"withdraw", "Withdraw Money"},
     {"deposit", "Deposit Money"},
@@ -96,6 +100,10 @@ static map<string, string> EN = {
 
 static map<string, string> FR = {
     {"login", "Connexion"},
+    {"LoginScreen", "Écran de connexion"},
+    {"InvalisUP", "Nom d’utilisateur ou mot de passe invalide !"},
+    {"EUser", "Entrez le nom d’utilisateur ?"},
+    {"EPass", "Entrez le mot de passe ?"},
     {"ChooseOption", "Veuillez choisir une option [1 à 8] :"},
     {"PressAnyKey", "Appuyez sur une touche pour revenir au "},
     {"MainMenu","Main menu principal"},

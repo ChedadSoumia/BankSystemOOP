@@ -71,9 +71,9 @@ private:
 
 	}
 
-	static void _ShowEndScreen()
+	static void _Logout()
 	{
-		
+		CurrentUser = clsUser::Find("", "");
 	}
 
 	static void _PerfromMainMenueOption(enMainMenueOptions MainMenueOptions) {
@@ -133,9 +133,7 @@ private:
 		case enMainMenueOptions::eExit:
 		{
 			system("cls");
-			_ShowEndScreen();
-			//Login();
-
+			_Logout();
 			break;
 		}
 

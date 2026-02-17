@@ -5,6 +5,7 @@
 #include "clsUtil.h"
 #include "clsMainScreen.h"
 #include "clsLang.h"
+#include "clsLoginScreen.h"
 
 
 
@@ -12,10 +13,23 @@
 int main()
 {
     setlocale(LC_ALL, "");
-    LangChosen = enLang::enFR;
+    string TheGlobalLang ;
 
-    
-    clsMainScreen::ShowMainMenue();
+    cout << "The language? EN/FR - ";
+    //clsMainScreen::ShowMainMenue();
+    cin >> TheGlobalLang;
+    if (clsString::LowerAllString(TheGlobalLang) == "en") {
+        LangChosen = enLang::enEN;
+    }
+    else {
+        LangChosen = enLang::enFR;
+    }
+
+
+    while(true){
+        clsLoginScreen::ShowLoginScreen();
+    }
+
     return 0;
 }
 
