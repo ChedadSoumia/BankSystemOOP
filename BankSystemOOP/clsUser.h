@@ -27,7 +27,7 @@ private:
         vUserData = clsString::Split(Line, Seperator);
 
         return clsUser(enMode::UpdateMode, vUserData[0], vUserData[1], vUserData[2],
-            vUserData[3], vUserData[4], vUserData[5], stoi(vUserData[6]));
+            vUserData[3], vUserData[4], clsUtil::DecryptText(vUserData[5],2), stoi(vUserData[6]));
 
     }
 
@@ -40,7 +40,7 @@ private:
         UserRecord += User.Email + Seperator;
         UserRecord += User.Phone + Seperator;
         UserRecord += User.UserName + Seperator;
-        UserRecord += User.Password + Seperator;
+        UserRecord += clsUtil::EncryptText(User.Password,2) + Seperator;
         UserRecord += to_string(User.Permissions);
 
         return UserRecord;
@@ -113,7 +113,7 @@ private:
         string LoginRecord = "";
         LoginRecord += clsDate::GetSystemDateTimeString() + Seperator;
         LoginRecord += this->UserName + Seperator;
-        LoginRecord += this->Password + Seperator;
+        LoginRecord += clsUtil::EncryptText(this->Password) + Seperator;
         LoginRecord += to_string(this->Permissions) + Seperator;
         LoginRecord += Action;
 
@@ -128,7 +128,7 @@ private:
         
         act.Date = vLogsData[0];
         act.username = vLogsData[1];
-        act.password = vLogsData[2];
+        act.password = clsUtil::DecryptText(vLogsData[2]);
         act.permission = stoi(vLogsData[3]);
         act.action = vLogsData[4];
         

@@ -119,7 +119,14 @@
     { "Transfer","Transfer" },
     { "MainMenu","Main Menu" },
     { "BackToTransactionMenu","Press any key to go back to Transaction Menu..." },
-    };
+    { "TransferLog","Transfer Log" },
+    { "SourceAccount","Source Account" },
+    { "DestinationAccount","Destination Account" },
+    { "Amount","Amount" },
+    { "SourceBalance","Source Balance" },
+    { "DestinationBalance","Destination Balance" },
+    { "User","User" },
+};
 
 
 

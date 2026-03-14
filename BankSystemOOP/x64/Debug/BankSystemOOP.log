@@ -17,16 +17,21 @@ C:\Users\soumaia\Desktop\O\BankSystemOOP\BankSystemOOP\BankSystemOOP\clsString.h
 C:\Users\soumaia\Desktop\O\BankSystemOOP\BankSystemOOP\BankSystemOOP\clsString.h(372,22): warning C4267: 'initializing': conversion from 'size_t' to 'short', possible loss of data
   (compiling source file 'BankSystemOOP.cpp')
   
-C:\Users\soumaia\Desktop\O\BankSystemOOP\BankSystemOOP\BankSystemOOP\clsBankClient.h(49,144): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\soumaia\Desktop\O\BankSystemOOP\BankSystemOOP\BankSystemOOP\clsBankClient.h(191,9): warning C4240: nonstandard extension used: access to 'clsBankClient::stTransferLog' now defined to be 'public', previously it was defined to be 'private'
+  (compiling source file 'BankSystemOOP.cpp')
+      C:\Users\soumaia\Desktop\O\BankSystemOOP\BankSystemOOP\BankSystemOOP\clsBankClient.h(16,9):
+      see declaration of 'clsBankClient::stTransferLog'
+  
+C:\Users\soumaia\Desktop\O\BankSystemOOP\BankSystemOOP\BankSystemOOP\clsBankClient.h(51,144): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   (compiling source file 'BankSystemOOP.cpp')
   
-C:\Users\soumaia\Desktop\O\BankSystemOOP\BankSystemOOP\BankSystemOOP\clsBankClient.h(321,10): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\soumaia\Desktop\O\BankSystemOOP\BankSystemOOP\BankSystemOOP\clsBankClient.h(350,10): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
   (compiling source file 'BankSystemOOP.cpp')
   
-C:\Users\soumaia\Desktop\O\BankSystemOOP\BankSystemOOP\BankSystemOOP\clsBankClient.h(326,22): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\soumaia\Desktop\O\BankSystemOOP\BankSystemOOP\BankSystemOOP\clsBankClient.h(355,22): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
   (compiling source file 'BankSystemOOP.cpp')
   
-C:\Users\soumaia\Desktop\O\BankSystemOOP\BankSystemOOP\BankSystemOOP\clsBankClient.h(334,23): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+C:\Users\soumaia\Desktop\O\BankSystemOOP\BankSystemOOP\BankSystemOOP\clsBankClient.h(363,23): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
   (compiling source file 'BankSystemOOP.cpp')
   
 C:\Users\soumaia\Desktop\O\BankSystemOOP\BankSystemOOP\BankSystemOOP\clsInputValidate.h(123,26): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
@@ -46,6 +51,6 @@ C:\Users\soumaia\Desktop\O\BankSystemOOP\BankSystemOOP\BankSystemOOP\clsLang.h(8
 C:\Users\soumaia\Desktop\O\BankSystemOOP\BankSystemOOP\BankSystemOOP\clsTotalBalancesScreen.h(50,60): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
   (compiling source file 'BankSystemOOP.cpp')
   
-C:\Users\soumaia\Desktop\O\BankSystemOOP\BankSystemOOP\BankSystemOOP\clsBankClient.h(288,1): warning C4715: 'clsBankClient::Save': not all control paths return a value
+C:\Users\soumaia\Desktop\O\BankSystemOOP\BankSystemOOP\BankSystemOOP\clsBankClient.h(317,1): warning C4715: 'clsBankClient::Save': not all control paths return a value
 C:\Users\soumaia\Desktop\O\BankSystemOOP\BankSystemOOP\BankSystemOOP\clsUser.h(366,1): warning C4715: 'clsUser::Save': not all control paths return a value
   BankSystemOOP.vcxproj -> C:\Users\soumaia\Desktop\O\BankSystemOOP\BankSystemOOP\x64\Debug\BankSystemOOP.exe

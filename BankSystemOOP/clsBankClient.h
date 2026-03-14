@@ -13,6 +13,8 @@ class clsBankClient : public clsPerson
 {
 private:
 
+	struct stTransferLog;
+
 	enum enMode { EmptyMode = 0, UpdateMode = 1, AddNewMode = 2 };
 	enMode _Mode;
 
@@ -167,7 +169,34 @@ private:
 		}
 	}
 
+	static stTransferLog _ConvertLinetoTransferLogStruct(string DataLine, string Seperator = "#//#") {
+		stTransferLog TransferLog;
+
+		vector<string> vLogsData = clsString::Split(DataLine, Seperator);
+
+		TransferLog.Date = vLogsData[0];
+		TransferLog.SourceClientAccountNumber = vLogsData[1];
+		TransferLog.DestinationClientAccountNumber = vLogsData[2];
+		TransferLog.Amount = stoi(vLogsData[3]);
+		TransferLog.SourceClientAccountBalance = stoi(vLogsData[4]);
+		TransferLog.DestinationClientAccountBalance = stoi(vLogsData[5]);
+		TransferLog.User = vLogsData[6];
+
+		return TransferLog;
+	}
+
 public:
+
+
+	struct stTransferLog {
+		string Date;
+		string SourceClientAccountNumber;
+		string DestinationClientAccountNumber;
+		double SourceClientAccountBalance;
+		double DestinationClientAccountBalance;
+		double Amount;
+		string User;
+	};
 
 	clsBankClient(enMode Mode, string FirstName, string LastName, string Email, string Phone, string AccountNumber, string PinCode, float AccountBalance)
 		: clsPerson(FirstName, LastName, Email, Phone) {
@@ -347,5 +376,30 @@ public:
 		DestinationClient.Deposite(Amount);
 		_SaveTransfer(DestinationClient, Amount, Username);
 		return true;
+	}
+
+	static vector<stTransferLog> GetTransferList() {
+
+		vector<stTransferLog> vTransferLog;
+		fstream MyFile;
+		MyFile.open("TransferHistory.txt", ios::in);
+
+		if (MyFile.is_open())
+		{
+
+			string Line;
+			stTransferLog TransferLog;
+
+			while (getline(MyFile, Line))
+			{
+
+				TransferLog = _ConvertLinetoTransferLogStruct(Line);
+
+				vTransferLog.push_back(TransferLog);
+			}
+
+			MyFile.close();
+		}
+		return vTransferLog;
 	}
 };

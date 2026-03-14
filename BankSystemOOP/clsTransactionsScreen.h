@@ -4,19 +4,20 @@
 #include "clsWithdrawScreen.h"
 #include "clsTotalBalancesScreen.h"
 #include "clsTransferScreen.h"
+#include "clsTransferLogScreen.h"
 class clsTransactionsScreen : protected clsScreen
 {
 private:
 	enum enTransactionsMenueOptions {
 		eDeposit = 1, eWithdraw = 2,
-		eShowTotalBalance = 3, eTransfer = 4, eShowMainMenue = 5
+		eShowTotalBalance = 3, eTransfer = 4, eTransferLog = 5, eShowMainMenue = 6
 	};
 
 	static short _ReadTransactionMenueOption() {
 		short Number;
 
 		cout << setw(37) << left << "" << clsLang::ToLang("ChooseOption",LangChosen) << "[1 to 5] ? ";
-		Number = clsInputValidate::ReadShortNumberBetween(1, 5, clsLang::ToLang("ChooseOption", LangChosen) + ": [1 to 5]? ");
+		Number = clsInputValidate::ReadShortNumberBetween(1, 6, clsLang::ToLang("ChooseOption", LangChosen) + ": [1 to 5]? ");
 
 		return Number;
 	}
@@ -45,6 +46,9 @@ private:
 	static void _ShowTransferScreen() {
 		clsTransferScreen::ShowTransferScreen();
 	}
+	static void _ShowTransferLogScreen() {
+		clsTransferLogScreen::ShowTransferLogScreen();
+	}
 
 	static void _PerformTransactionsMenueOption(enTransactionsMenueOptions TransactionsMenueOption) {
 		switch (TransactionsMenueOption) {
@@ -71,6 +75,12 @@ private:
 		case enTransactionsMenueOptions::eTransfer: {
 			system("cls");
 			_ShowTransferScreen();
+			_GoBackToTransactionsMenue();
+			break;
+		}
+		case enTransactionsMenueOptions::eTransferLog: {
+			system("cls");
+			_ShowTransferLogScreen();
 			_GoBackToTransactionsMenue();
 			break;
 		}
@@ -102,7 +112,8 @@ public:
 		cout << setw(37) << left << "" << "\t[2] " << clsLang::ToLang("Withdraw", LangChosen) << ".\n";
 		cout << setw(37) << left << "" << "\t[3] " << clsLang::ToLang("TotalBalances", LangChosen) << ".\n";
 		cout << setw(37) << left << "" << "\t[4] " << clsLang::ToLang("Transfer", LangChosen) << ".\n";
-		cout << setw(37) << left << "" << "\t[5] " << clsLang::ToLang("MainMenu", LangChosen) << ".\n";
+		cout << setw(37) << left << "" << "\t[5] " << clsLang::ToLang("TransferLog", LangChosen) << ".\n";
+		cout << setw(37) << left << "" << "\t[6] " << clsLang::ToLang("MainMenu", LangChosen) << ".\n";
 		cout << setw(37) << left << "" << "===========================================\n";
 
 		_PerformTransactionsMenueOption((enTransactionsMenueOptions)_ReadTransactionMenueOption());
