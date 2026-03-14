@@ -12,6 +12,9 @@
 
 int main()
 {
+
+    SetConsoleCtrlHandler(ConsoleHandler, TRUE);
+
     setlocale(LC_ALL, "");
     string TheGlobalLang ;
 
@@ -26,9 +29,16 @@ int main()
     }
 
 
-    while(true){
-        clsLoginScreen::ShowLoginScreen();
+    
+    while (true)
+    {
+        if (!clsLoginScreen::ShowLoginScreen())
+        {
+            break;
+        }
+
     }
+    
 
     return 0;
 }

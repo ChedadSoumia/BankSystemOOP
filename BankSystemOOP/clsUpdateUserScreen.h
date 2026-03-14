@@ -122,6 +122,13 @@ private:
             Permissions += clsUser::enPermissions::pManageUsers;
         }
 
+        cout << "\n" << clsLang::ToLang("LoginLogoutRegister", LangChosen) << "? y/n? ";
+        cin >> Answer;
+        if (Answer == 'y' || Answer == 'Y')
+        {
+            Permissions += clsUser::enPermissions::pRegisterScreen;
+        }
+
         return Permissions;
 
     }

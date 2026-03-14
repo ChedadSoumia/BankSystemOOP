@@ -2,7 +2,6 @@
 #include <iostream>
 #include <iomanip>
 #include "clsBankClient.h"
-#include "clsInputValidate.h"
 #include "clsScreen.h"
 class clsClientListScreen : protected clsScreen
 {
@@ -21,6 +20,16 @@ private:
 
 public:
     static void ShowClientsList() {
+
+
+        if (!CheckAccessRights(clsUser::enPermissions::pListClients)) {
+            {
+                return;
+            }
+        }
+
+
+
         vector <clsBankClient> _vClient = clsBankClient::GetClientsList();
 
         string Title = "\t " + clsLang::ToLang("ClientListScreen",LangChosen);

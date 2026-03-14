@@ -11,7 +11,7 @@ private:
     {
         cout << "\n" << clsLang::ToLang("ClientCard", LangChosen) << " :";
         cout << "\n___________________";
-        cout << "\n" << clsLang::ToLang("ClientName", LangChosen) << " : " << Client.FirstName;
+        cout << "\n" << clsLang::ToLang("FirstName", LangChosen) << " : " << Client.FirstName;
         cout << "\n" << clsLang::ToLang("LastName", LangChosen) << " : " << Client.LastName;
         cout << "\n" << clsLang::ToLang("Email", LangChosen) << " : " << Client.Email;
         cout << "\n" << clsLang::ToLang("Phone", LangChosen) << " : " << Client.Phone;
@@ -25,6 +25,13 @@ private:
 public:
 
     static void ShowFindClientScreen() {
+
+        if (!CheckAccessRights(clsUser::enPermissions::pFindClient)) {
+            {
+                return;
+            }
+        }
+
         _DrawScreenHeader(clsLang::ToLang("FINDCSc",LangChosen));
         string AccountNumber = "";
         cout << "\n" << clsLang::ToLang("EnterNumClient", LangChosen) << ": ";

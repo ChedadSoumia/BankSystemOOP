@@ -7,7 +7,8 @@
 #include "clsFindClientScreen.h"
 #include "clsTransactionsScreen.h"
 #include "clsManageUsersScreen.h"
-//#include  "clsLang.h"
+#include "clsLoginLogoutScreen.h"
+#include  "Global.h"
 
 
 
@@ -17,14 +18,14 @@ private:
 	enum enMainMenueOptions {
 		eListClients = 1, eAddNewClient = 2, eDeleteClient = 3,
 		eUpdateClient = 4, eFindClient = 5, eShowTransactionsMenue = 6,
-		eManageUsers = 7, eExit = 8
+		eManageUsers = 7,eLoginLogoutRegister = 8 ,eExit = 9
 	};
 
 	static short _ReadMainMenueOption() {
 		short Number;
 
-		cout << setw(37) << left << "" << clsLang::ToLang("ChooseOption",LangChosen);
-		Number = clsInputValidate::ReadShortNumberBetween(1, 8, clsLang::ToLang("ChooseOption", LangChosen));
+		cout << setw(37) << left << "" << clsLang::ToLang("ChooseOption",LangChosen) + " [1-9] : ";
+		Number = clsInputValidate::ReadShortNumberBetween(1, 9, clsLang::ToLang("ChooseOption", LangChosen) + " [1-9] : ");
 
 		return Number;
 	}
@@ -36,6 +37,11 @@ private:
 		system("pause>0");
 
 		ShowMainMenue();
+	}
+	static void Logout()
+	{
+		CurrentUser = clsUser::Find("", "");
+		CurrentUser.SaveLoginLog("Logout");
 	}
 
 	static void _ShowAllClientScreen() {
@@ -71,9 +77,13 @@ private:
 
 	}
 
+	static void _ShowLoginLogoutScreen() {
+		clsLoginLogoutScreen::ShowLoginLogoutScreen();
+	}
+
 	static void _Logout()
 	{
-		CurrentUser = clsUser::Find("", "");
+		Logout();
 	}
 
 	static void _PerfromMainMenueOption(enMainMenueOptions MainMenueOptions) {
@@ -130,6 +140,13 @@ private:
 			_GoBackToMainMenue();
 			break;
 		}
+		case enMainMenueOptions::eLoginLogoutRegister:
+		{
+			system("cls");
+			_ShowLoginLogoutScreen();
+			_GoBackToMainMenue();
+			break;
+		}
 		case enMainMenueOptions::eExit:
 		{
 			system("cls");
@@ -158,7 +175,8 @@ public:
 		cout << setw(37) << left << "" << "\t[5] " << clsLang::ToLang("FindClient", LangChosen) << ".\n";
 		cout << setw(37) << left << "" << "\t[6] " << clsLang::ToLang("Transactions", LangChosen) << ".\n";
 		cout << setw(37) << left << "" << "\t[7] " << clsLang::ToLang("ManageUsers", LangChosen) << ".\n";
-		cout << setw(37) << left << "" << "\t[8] " << clsLang::ToLang("Logout", LangChosen) << ".\n";
+		cout << setw(37) << left << "" << "\t[8] " << clsLang::ToLang("LoginLogoutRegister", LangChosen) << ".\n";
+		cout << setw(37) << left << "" << "\t[9] " << clsLang::ToLang("Logout", LangChosen) << ".\n";
 		cout << setw(37) << left << "" << "===========================================\n";
 
 		_PerfromMainMenueOption((enMainMenueOptions)_ReadMainMenueOption());

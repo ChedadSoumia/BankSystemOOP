@@ -4,6 +4,7 @@
 
 #include "clsScreen.h"
 #include "clsBankClient.h"
+#include "Global.h"
 using namespace std;
 
 class clsAddNewClientScreen : protected clsScreen
@@ -52,6 +53,14 @@ private:
     }
 public:
 	static void ShowAddClientScreen() {
+
+        if (!CheckAccessRights(clsUser::enPermissions::pAddNewClient)){
+            {
+                return;
+            }
+        }
+
+
         _DrawScreenHeader(clsLang::ToLang("AddNewClientScreen", LangChosen));
         string AccountNumber = "";
         cout << "\n" << clsLang::ToLang("EnterNumClient",LangChosen) << ": ";

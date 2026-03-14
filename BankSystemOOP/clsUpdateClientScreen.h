@@ -51,6 +51,14 @@ private:
 
 public:
     static void ShowUpdateClientScreen() {
+
+
+        if (!CheckAccessRights(clsUser::enPermissions::pUpdateClients)) {
+            {
+                return;
+            }
+        }
+
         _DrawScreenHeader(clsLang::ToLang("UpdateClientScreen", LangChosen));
         string AccountNumber = "";
         cout << "\n" << clsLang::ToLang("EnterNumClient", LangChosen) << ": ";

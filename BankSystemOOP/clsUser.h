@@ -11,11 +11,15 @@ using namespace std;
 class clsUser : public clsPerson
 {
 private:
+    struct stLoginLogout;
+
     enum enMode{ EmptyMode = 0, UpdateMode = 1, AddNewMode = 2 };
     enMode _Mode;
     string _UserName , _Password;
     int _Permissions;
     bool _MarkedForDelete = false;
+
+    
 
     static clsUser _ConvertLinetoUserObject(string Line, string Seperator = "#//#")
     {
@@ -102,6 +106,58 @@ private:
 
     }
 
+
+    string _MakeLoginLogoutLine(string Action, string Seperator = "#//#" )
+    {
+
+        string LoginRecord = "";
+        LoginRecord += clsDate::GetSystemDateTimeString() + Seperator;
+        LoginRecord += this->UserName + Seperator;
+        LoginRecord += this->Password + Seperator;
+        LoginRecord += to_string(this->Permissions) + Seperator;
+        LoginRecord += Action;
+
+        return LoginRecord;
+
+    }
+
+    static stLoginLogout _ConvertLinetoLoginStruct(string DataLine, string Seperator = "#//#") {
+        stLoginLogout act;
+
+        vector<string> vLogsData = clsString::Split(DataLine, Seperator);
+        
+        act.Date = vLogsData[0];
+        act.username = vLogsData[1];
+        act.password = vLogsData[2];
+        act.permission = stoi(vLogsData[3]);
+        act.action = vLogsData[4];
+        
+        return act;
+    }
+    static vector<stLoginLogout> _LoadRegisterDataFromFileToStruct() {
+        vector<stLoginLogout> vLoginLogout;
+
+        fstream MyFile;
+        MyFile.open("LoginHistory.txt", ios::in);
+
+        if (MyFile.is_open())
+        {
+
+            string Line;
+            stLoginLogout Action;
+
+            while (getline(MyFile, Line))
+            {
+
+                Action = _ConvertLinetoLoginStruct(Line);
+
+                vLoginLogout.push_back(Action);
+            }
+
+            MyFile.close();
+        }
+        return vLoginLogout;
+    }
     void _Update()
     {
         vector <clsUser> _vUsers;
@@ -153,7 +209,15 @@ private:
 public:
     enum enPermissions {
         eAll = -1, pListClients = 1, pAddNewClient = 2, pDeleteClient = 4,
-        pUpdateClients = 8, pFindClient = 16, pTranactions = 32, pManageUsers = 64
+        pUpdateClients = 8, pFindClient = 16, pTranactions = 32, pManageUsers = 64, pRegisterScreen = 128
+    };
+
+    struct stLoginLogout {
+        string Date;
+        string username;
+        string password;
+        int permission;
+        string action;
     };
 
 
@@ -342,6 +406,41 @@ public:
     }
 
 
+    bool CheckAccessPermission(enPermissions Permission) {
+
+        if (this->Permissions == enPermissions::eAll)
+            return true;
+        
+        if ((Permission & this->Permissions) == Permission)
+            return true;
+        else
+            return false;
+
+
+    }
+
+
+    void SaveLoginLog(string Action) {
+        string DataLine = _MakeLoginLogoutLine(Action);
+
+        fstream MyFile;
+        MyFile.open("LoginHistory.txt", ios::out | ios::app);
+
+
+
+        if (MyFile.is_open())
+        {
+
+            MyFile << DataLine << endl;
+
+            MyFile.close();
+
+        }
+    }
+
+    static vector<stLoginLogout> GetLoginLogoutRegisterList() {
+        return _LoadRegisterDataFromFileToStruct();
+    }
 
 
 };

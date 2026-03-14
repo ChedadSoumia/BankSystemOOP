@@ -24,6 +24,13 @@ private:
 
 public:
     static void ShowDeleteClientScreen() {
+
+        if (!CheckAccessRights(clsUser::enPermissions::pDeleteClient)) {
+            {
+                return;
+            }
+        }
+
         _DrawScreenHeader(clsLang::ToLang("DLTclientScreen",LangChosen));
         string AccountNumber = "";
         cout << "\n" << clsLang::ToLang("EnterNumClient", LangChosen) << ": ";
