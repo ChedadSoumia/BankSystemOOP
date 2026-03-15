@@ -17,3 +17,7 @@ BOOL WINAPI ConsoleHandler(DWORD signal)
     }
     return FALSE;
 }
+
+void SetColor(int color) {
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
+}

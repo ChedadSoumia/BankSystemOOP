@@ -31,6 +31,9 @@
     <Filter Include="Header Files\Screens\Users">
       <UniqueIdentifier>{33c8558b-e33e-4b40-a2d9-28c1a9796681}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Screens\Currency">
+      <UniqueIdentifier>{0b6ef1e7-9bae-4dde-92c2-43258fa61ead}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BankSystemOOP.cpp">
@@ -119,8 +122,23 @@
     <ClInclude Include="clsWithdrawScreen.h">
       <Filter>Header Files\Screens\Client</Filter>
     </ClInclude>
+    <ClInclude Include="clsCurrency.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="clsCurrencyMainScreen.h">
+      <Filter>Header Files\Screens\Currency</Filter>
+    </ClInclude>
+    <ClInclude Include="clsCurrenciesListScreen.h">
+      <Filter>Header Files\Screens\Currency</Filter>
+    </ClInclude>
     <ClInclude Include="clsTransferLogScreen.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Screens\Client</Filter>
+    </ClInclude>
+    <ClInclude Include="clsFindCurrencyScreen.h">
+      <Filter>Header Files\Screens\Currency</Filter>
+    </ClInclude>
+    <ClInclude Include="clsUpdateCurrencyRateScreen.h">
+      <Filter>Header Files\Screens\Currency</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

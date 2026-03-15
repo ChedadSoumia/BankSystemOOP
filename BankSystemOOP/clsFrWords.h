@@ -7,7 +7,7 @@ using namespace std;
 
 static map<string, string> FR = {
     {"login", "Connexion"},
-    {"LoginScreen", "Écran de connexion"},
+    {"LoginScreen", "Ecran de connexion"},
     {"InvalisUP", "Nom d'utilisateur ou mot de passe invalide !"},
     {"EUser", "Entrez le nom d'utilisateur ?"},
     {"EPass", "Entrez le mot de passe ?"},
@@ -127,8 +127,31 @@ static map<string, string> FR = {
     { "SourceBalance","Solde du compte source" },
     { "DestinationBalance","Solde du compte destinataire" },
     { "User","Utilisateur" },
-
-
+    { "CurrencyExchange","Change de devises" },
+    { "ListCurrencies","Liste des devises" },
+    { "FindCurrency","Rechercher une devise" },
+    { "UpdateRate","Mettre à jour le taux" },
+    { "CurrencyCalculator","Calculateur de devises" },
+    { "CurrencyExchangeMainScreen","Ecran principal du change de devises" },
+    { "CurrencyExchangeMenu","Menu de change de devises" },
+    { "Country","Pays" },
+    { "CurrencyCode","Code de devise" },
+    { "Rate","Taux de change" },
+    { "CurrenciesListScreen","Ecran de la liste des devises" },
+    { "Currencies","Devise(s)" },
+    { "CurrencyName","Nom de la devise" },
+    { "BackToCurrenciesMenu","Appuyez sur une touche pour revenir au menu des devises..." },
+    { "FindCurrencyScreen","Ecran de recherche de devise" },
+    { "FindBy","Rechercher par : [1] Code ou [2] Pays ?" },
+    { "EnterCurrencyCode","Veuillez entrer le code de la devise ?" },
+    { "EnterCountryName","Veuillez entrer le nom du pays ?" },
+    { "CurrencyFound","Devise trouvée" },
+    { "CurrencyCard","Carte de la devise" },
+    { "CurrencyNotFound","Devise non trouvée" },
+    { "UpdateCurrencyRateScreen","Update Currency Rate Screen" },
+    { "ConfirmUpdateRate","Etes-vous sûr de vouloir mettre à jour le taux de cette devise ? o/n" },
+    { "EnterNewRate","Veuillez entrer le nouveau taux ?" },
+    { "RateUpdateSuccess","Taux de la devise mis à jour avec succès" },
 
 };
 

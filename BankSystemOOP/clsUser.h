@@ -113,7 +113,7 @@ private:
         string LoginRecord = "";
         LoginRecord += clsDate::GetSystemDateTimeString() + Seperator;
         LoginRecord += this->UserName + Seperator;
-        LoginRecord += clsUtil::EncryptText(this->Password) + Seperator;
+        LoginRecord += clsUtil::EncryptText(this->Password,2) + Seperator;
         LoginRecord += to_string(this->Permissions) + Seperator;
         LoginRecord += Action;
 
@@ -128,7 +128,7 @@ private:
         
         act.Date = vLogsData[0];
         act.username = vLogsData[1];
-        act.password = clsUtil::DecryptText(vLogsData[2]);
+        act.password = clsUtil::DecryptText(vLogsData[2],2);
         act.permission = stoi(vLogsData[3]);
         act.action = vLogsData[4];
         

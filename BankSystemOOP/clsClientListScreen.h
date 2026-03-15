@@ -37,13 +37,13 @@ public:
         _DrawScreenHeader(Title, SubTitle);
         
         
-        cout << "| " << left << setw(40) << clsLang::ToLang("ClientName", LangChosen);
+        cout << "| " << left << setw(40) << clsLang::ToLang("FullName", LangChosen);
         cout << "| " << left << setw(25) << clsLang::ToLang("Email", LangChosen);
         cout << "| " << left << setw(12) << clsLang::ToLang("Phone", LangChosen);
         cout << "| " << left << setw(15) << clsLang::ToLang("AccountNumber", LangChosen);
         cout << "| " << left << setw(10) << clsLang::ToLang("PinCode", LangChosen);
-        cout << "| " << left << setw(12) << clsLang::ToLang("Balance", LangChosen);
-        cout << "\n___________________________________________________________";
+        cout << "| " << left << setw(12) << clsLang::ToLang("balance", LangChosen);
+        cout << "\n_______________________________________________________________________________";
         cout << "_________________________________________________________________\n" << endl;
 
         if (_vClient.size() == 0)
@@ -58,7 +58,7 @@ public:
                 cout << endl;
             }
 
-        cout << "\n___________________________________________________________";
+        cout << "\n_______________________________________________________________________________";
         cout << "_________________________________________________________________\n" << endl;
 
 
