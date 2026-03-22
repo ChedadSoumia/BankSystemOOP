@@ -1,3 +1,5 @@
+# Banking system :
+
 A Console-Based Banking System developed in C++ using Object-Oriented Programming (OOP) principles.
 
 The system provides a complete simulation of real-world banking operations with a focus on clean architecture, maintainability, and user experience.
