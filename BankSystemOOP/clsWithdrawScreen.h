@@ -7,21 +7,23 @@ class clsWithdrawScreen : clsScreen
 private:
     static void _Print(clsBankClient Client)
     {
-        cout << "\n" << clsLang::ToLang("ClientCard", LangChosen) << " :";
+        SetColor(13);
+        cout << "\n" << clsLang::ToLang("ClientCard") << " :";
         cout << "\n___________________";
-        cout << "\n" << clsLang::ToLang("ClientName", LangChosen) << " : " << Client.FirstName;
-        cout << "\n" << clsLang::ToLang("LastName", LangChosen) << " : " << Client.LastName;
-        cout << "\n" << clsLang::ToLang("Email", LangChosen) << " : " << Client.Email;
-        cout << "\n" << clsLang::ToLang("Phone", LangChosen) << " : " << Client.Phone;
-        cout << "\n" << clsLang::ToLang("AccountNumber", LangChosen) << " : " << Client.GetAccountNumber();
-        cout << "\n" << clsLang::ToLang("PinCode", LangChosen) << " : " << Client.PinCode;
-        cout << "\n" << clsLang::ToLang("Balance", LangChosen) << " : " << Client.AccountBalance;
+        cout << "\n" << clsLang::ToLang("FirstName") << " : " << Client.FirstName;
+        cout << "\n" << clsLang::ToLang("LastName") << " : " << Client.LastName;
+        cout << "\n" << clsLang::ToLang("Email") << " : " << Client.Email;
+        cout << "\n" << clsLang::ToLang("Phone") << " : " << Client.Phone;
+        cout << "\n" << clsLang::ToLang("AccountNumber") << " : " << Client.GetAccountNumber();
+        cout << "\n" << clsLang::ToLang("PinCode") << " : " << Client.PinCode;
+        cout << "\n" << clsLang::ToLang("Balance") << " : " << Client.AccountBalance;
         cout << "\n___________________\n";
+        SetColor(7);
 
     }
-    static string ReadAccountNumber() {
+    static string _ReadAccountNumber() {
         string AccountNumber = "";
-        cout << "\n" << clsLang::ToLang("EnterNumClient", LangChosen) << ": ";
+        cout << "\n" << clsLang::ToLang("EnterNumClient") << ": ";
         cin >> AccountNumber;
         return AccountNumber;
     }
@@ -29,44 +31,54 @@ private:
 
 public : 
     static void ShowWithdrawScreen() {
-        _DrawScreenHeader("\t  Withdraw Screen");
+        _DrawScreenHeader("\t  "+ clsLang::ToLang("WithdrawScreen"));
 
         string AccountNumber = "";
-        cout << "\nPlease Enter client Account Number: ";
-        AccountNumber = clsInputValidate::ReadString();
+        AccountNumber = _ReadAccountNumber();
 
         while (!clsBankClient::IsClientExist(AccountNumber)) {
-            cout << "\nAccount number is not found, choose another one: ";
-            AccountNumber = clsInputValidate::ReadString();
+            SetColor(14);
+            cout << "\n" << clsLang::ToLang("ClientNotFound") << " : ";
+            SetColor(7);
+            AccountNumber = _ReadAccountNumber();
         }
 
         clsBankClient Client = clsBankClient::Find(AccountNumber);
         _Print(Client);
 
         double Amount = 0;
-        cout << "\nPlease enter Withdraw amount? ";
-        Amount = clsInputValidate::ReadDblNumber();
+        cout << "\n" << clsLang::ToLang("EnterWithdrawAmount") << " : ";
+        Amount = clsInputValidate::ReadNumber<double>();
 
-        cout << "\nAre you sure you want to perform this transaction? ";
+        SetColor(12);
+        cout << "\n" << clsLang::ToLang("ConfirmTransaction") << " [Y/N]: ";
+        SetColor(7);
+
         char Answer = 'n';
         cin >> Answer;
         if (Answer == 'Y' || Answer == 'y') {
             if(Client.Withdraw(Amount))
             {
-                cout << "\nAmount Withdraw Successfully.\n";
-                cout << "\nNew Balance Is: " << Client.AccountBalance;
+                SetColor(2);
+                cout << "\n" << clsLang::ToLang("WithdrawSuccess");
+                cout << "\n" << clsLang::ToLang("NewBalance") << " : " << Client.AccountBalance;
+                SetColor(7);
                 cout << "\n\n";
             }
             else {
-                cout << "\nCannot withdraw, Insuffecient Balance!\n";
-                cout << "\nAmout to withdraw is: " << Amount;
-                cout << "\nYour Balance is: " << Client.AccountBalance;
+                SetColor(14);
+                cout << "\n" << clsLang::ToLang("InsufficientBalance");
+                cout << "\n" << clsLang::ToLang("AmountToWithdraw") << " : " << Amount;
+                cout << "\n" << clsLang::ToLang("YourBalance") << " : " << Client.AccountBalance;
+                SetColor(7);
                 cout << "\n\n";
             }
 
         }
         else {
-            cout << "\nOperation was cancelled.\n";
+            SetColor(14);
+            cout << "\n" << clsLang::ToLang("OperationCancelled");
+            SetColor(7);
         }
 
 

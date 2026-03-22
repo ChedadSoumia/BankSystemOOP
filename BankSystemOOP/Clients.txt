@@ -1,6 +1,6 @@
-Mohammed#//#Abu-Hadhoud#//#Mo@gmail.com#//#0799997886#//#A101#//#1234#//#4990.000000
-Khaili#//#Ahmed#//#Khalil#//#8928982#//#A102#//#1234#//#8748.000000
-Adli#//#Haddad#//#Adli@Gmail.com#//#8983883#//#A103#//#1234#//#555.000000
+Mohammed#//#Abu-Hadhoud#//#Mo@gmail.com#//#0799997886#//#A101#//#1234#//#4770.000000
+Khaili#//#Ahmed#//#Khalil#//#8928982#//#A102#//#1234#//#6848.000000
+Adli#//#Haddad#//#Adli@Gmail.com#//#8983883#//#A103#//#1234#//#2555.000000
 Jamil#//#Adli#//#Jamil@gmail.com#//#23123123#//#A104#//#1234#//#9922.000000
 Lina#//#Loay#//#Lina@gmail.com#//#1234#//#A07#//#125#//#123.000000
 Mazem#//#Kareem#//#Mazin@gmail.com#//#898234#//#A106#//#1234#//#8002.000000
@@ -8,8 +8,11 @@ Lama#//#Karmi#//#Lama@gmail.com#//#8983883#//#A107#//#1234#//#1234.000000
 Gandi#//#Omran#//#Ghandi@gmail.com#//#1234#//#A108#//#1234#//#7000.000000
 Hamed#//#Abbas#//#H@Gmail.com#//#8838#//#A109#//#1234#//#5000.000000
 Hilal#//#Mazin#//#A@A.com#//#123443#//#A110#//#1234#//#9000.000000
-Majida#//#Yousef#//#Majida#//#1234#//#A111#//#1234#//#717.000000
-Soumia#//#Chedad#//#soumia@gmail.com#//#87654345#//#A112#//#1234#//#38.000000
+Majida#//#youcef#//#m@gmail.com#//#134#//#A111#//#1234#//#20000.000000
 Soumia#//#Chedad#//#chedadsoumia@gmail.com#//#789789#//#A105#//#1234#//#19000.000000
 iMANE#//#IMANE#//#IMANE@GMAIL;COM#//#12432#//#AAA#//#1231#//#2123.000000
 CHED#//#CHED#//#CHE@GMAIL.COM#//#126543#//#EEE#//#1234#//#1000.000000
+Sara#//#Sara#//#Sara@gmail.com#//#123456#//#A201#//#0000#//#20000.000000
+Sami#//#sami#//#s@gmail.com#//#3456#//#A100#//#1212#//#74978.000000
+SA#//#SA#//#SA@gmail.com#//#12432#//#A113#//#1231#//#1212.000000
+Soumia#//#chedad#//#chdsoumia@gmail.com#//#1234#//#A120#//#4321#//#22321.000000

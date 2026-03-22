@@ -16,14 +16,16 @@ private:
 	static short _ReadTransactionMenueOption() {
 		short Number;
 
-		cout << setw(37) << left << "" << clsLang::ToLang("ChooseOption",LangChosen) << "[1 to 5] ? ";
-		Number = clsInputValidate::ReadShortNumberBetween(1, 6, clsLang::ToLang("ChooseOption", LangChosen) + ": [1 to 5]? ");
+		cout << setw(37) << left << "" << clsLang::ToLang("ChooseOption") << "[1 to 6] ? ";
+		Number = clsInputValidate::ReadNumberBetween<short>(1, 6, clsLang::ToLang("ChooseOption") + ": [1 to 6]? ");
 
 		return Number;
 	}
 
 	static void _GoBackToTransactionsMenue() {
-		cout << setw(37) << left << "" << "\n\t" << clsLang::ToLang("BackToTransactionMenu", LangChosen) << "...\n\n";
+		SetColor(3);
+		cout << setw(37) << left << "" << "\n\t" << clsLang::ToLang("BackToTransactionMenu") << "...\n\n";
+		SetColor(7);
 		system("pause>0");
 
 		ShowTransactionsMenue();
@@ -103,19 +105,19 @@ public:
 		}
 		
 		system("cls");
-		_DrawScreenHeader("\t\t" + clsLang::ToLang("TransactionScreen",LangChosen));
-
-		cout << setw(37) << left << "" << "===========================================\n";
-		cout << setw(37) << left << "" << "\t\t\t" <<clsLang::ToLang("TransactionMenu",LangChosen) << "\n";
-		cout << setw(37) << left << "" << "===========================================\n";
-		cout << setw(37) << left << "" << "\t[1] " << clsLang::ToLang("Deposit", LangChosen) << ".\n";
-		cout << setw(37) << left << "" << "\t[2] " << clsLang::ToLang("Withdraw", LangChosen) << ".\n";
-		cout << setw(37) << left << "" << "\t[3] " << clsLang::ToLang("TotalBalances", LangChosen) << ".\n";
-		cout << setw(37) << left << "" << "\t[4] " << clsLang::ToLang("Transfer", LangChosen) << ".\n";
-		cout << setw(37) << left << "" << "\t[5] " << clsLang::ToLang("TransferLog", LangChosen) << ".\n";
-		cout << setw(37) << left << "" << "\t[6] " << clsLang::ToLang("MainMenu", LangChosen) << ".\n";
-		cout << setw(37) << left << "" << "===========================================\n";
-
+		_DrawScreenHeader("\t\t" + clsLang::ToLang("TransactionsScreen"));
+		SetColor(3);
+		cout << setw(37) << left << "" << "==========================================================\n";
+		cout << setw(37) << left << "" << "\t\t\t" <<clsLang::ToLang("TransactionMenu") << "\n";
+		cout << setw(37) << left << "" << "==========================================================\n";
+		cout << setw(37) << left << "" << "\t[1] " << clsLang::ToLang("Deposit") << ".\n";
+		cout << setw(37) << left << "" << "\t[2] " << clsLang::ToLang("Withdraw") << ".\n";
+		cout << setw(37) << left << "" << "\t[3] " << clsLang::ToLang("TotalBalances") << ".\n";
+		cout << setw(37) << left << "" << "\t[4] " << clsLang::ToLang("Transfer") << ".\n";
+		cout << setw(37) << left << "" << "\t[5] " << clsLang::ToLang("TransferLog") << ".\n";
+		cout << setw(37) << left << "" << "\t[6] " << clsLang::ToLang("MainMenu") << ".\n";
+		cout << setw(37) << left << "" << "==========================================================\n\n";
+		SetColor(7);
 		_PerformTransactionsMenueOption((enTransactionsMenueOptions)_ReadTransactionMenueOption());
 	}
 

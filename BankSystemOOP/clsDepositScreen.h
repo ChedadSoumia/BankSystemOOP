@@ -8,57 +8,64 @@ class clsDepositScreen: protected clsScreen
 private:
     static void _Print(clsBankClient Client)
     {
-        cout << "\nClient Card:";
+        SetColor(13);
+        cout << "\n" << clsLang::ToLang("ClientCard") << " :";
         cout << "\n___________________";
-        cout << "\nFirstName   : " << Client.FirstName;
-        cout << "\nLastName    : " << Client.LastName;
-        cout << "\nFull Name   : " << Client.FullName();
-        cout << "\nEmail       : " << Client.Email;
-        cout << "\nPhone       : " << Client.Phone;
-        cout << "\nAcc. Number : " << Client.GetAccountNumber();
-        cout << "\nPassword    : " << Client.PinCode;
-        cout << "\nBalance     : " << Client.AccountBalance;
+        cout << "\n" << clsLang::ToLang("FirstName") << " : " << Client.FirstName;
+        cout << "\n" << clsLang::ToLang("LastName") << " : " << Client.LastName;
+        cout << "\n" << clsLang::ToLang("Email") << " : " << Client.Email;
+        cout << "\n" << clsLang::ToLang("Phone") << " : " << Client.Phone;
+        cout << "\n" << clsLang::ToLang("AccountNumber") << " : " << Client.GetAccountNumber();
+        cout << "\n" << clsLang::ToLang("PinCode") << " : " << Client.PinCode;
+        cout << "\n" << clsLang::ToLang("Balance") << " : " << Client.AccountBalance;
         cout << "\n___________________\n";
+        SetColor(7);
 
     }
     static string ReadAccountNumber() {
         string AccountNumber = "";
-        cout << "\nEnter Account Number : \n";
+        cout << "\n" << clsLang::ToLang("EnterNumClient") << ": ";
         cin >> AccountNumber;
         return AccountNumber;
     }
 
 public:
 	static void ShowDepositScreen() {
-        _DrawScreenHeader("\t  Deposite Screen");
+        _DrawScreenHeader("\t  " + clsLang::ToLang("DepositScreen"));
 
         string AccountNumber = "";
-        cout << "\nPlease Enter client Account Number: ";
+        cout << "\n" << clsLang::ToLang("EnterNumClient") << ": ";
         AccountNumber = clsInputValidate::ReadString();
 
         while (!clsBankClient::IsClientExist(AccountNumber)) {
-            cout << "\nAccount number is not found, choose another one: ";
+            SetColor(14);
+            cout << "\n" << clsLang::ToLang("ClientNotFound") << " : ";
             AccountNumber = clsInputValidate::ReadString();
+            SetColor(7);
         }
 
         clsBankClient Client = clsBankClient::Find(AccountNumber);
         _Print(Client);
 
         double Amount = 0;
-        cout << "\nPlease enter deposit amount? ";
-        Amount = clsInputValidate::ReadDblNumber();
+        cout << "\n" << clsLang::ToLang("EnterDepositAmount");
+        
+        Amount = clsInputValidate::ReadNumber<double>();
 
-        cout << "\nAre you sure you want to perform this transaction? ";
+        cout << "\n" << clsLang::ToLang("ConfirmTransaction");
         char Answer = 'n';
         cin >> Answer;
         if (Answer == 'Y' || Answer == 'y') {
             Client.Deposite(Amount);
-            cout << "\nAmount Deposited Successfully.\n";
-            cout << "\nNew Balance Is: " << Client.AccountBalance;
-
+            SetColor(2);
+            cout << "\n" << clsLang::ToLang("DepositSuccess");
+            cout << "\n"<< clsLang::ToLang("NewBalance") << " : " << Client.AccountBalance;
+            SetColor(7);
         }
         else {
-            cout << "\nOperation was cancelled.\n";
+            SetColor(14);
+            cout << "\n" << clsLang::ToLang("OperationCancelled");
+            SetColor(7);
         }
 
 

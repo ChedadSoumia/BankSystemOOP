@@ -18,20 +18,11 @@ int main()
     setlocale(LC_ALL, "");
     string TheGlobalLang ;
 
-    cout << "The language? EN/FR - ";
-    //clsMainScreen::ShowMainMenue();
-    cin >> TheGlobalLang;
-    if (clsString::LowerAllString(TheGlobalLang) == "en") {
-        LangChosen = enLang::enEN;
-    }
-    else {
-        LangChosen = enLang::enFR;
-    }
 
-
-    
     while (true)
     {
+        clsLang();
+
         if (!clsLoginScreen::ShowLoginScreen())
         {
             break;

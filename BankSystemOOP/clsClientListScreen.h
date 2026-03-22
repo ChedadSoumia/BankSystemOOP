@@ -32,22 +32,24 @@ public:
 
         vector <clsBankClient> _vClient = clsBankClient::GetClientsList();
 
-        string Title = "\t " + clsLang::ToLang("ClientListScreen",LangChosen);
+        string Title = "\t " + clsLang::ToLang("ClientListScreen");
         string SubTitle = "\t  (" + to_string(_vClient.size()) + ") Client(s)";
         _DrawScreenHeader(Title, SubTitle);
         
         
-        cout << "| " << left << setw(40) << clsLang::ToLang("FullName", LangChosen);
-        cout << "| " << left << setw(25) << clsLang::ToLang("Email", LangChosen);
-        cout << "| " << left << setw(12) << clsLang::ToLang("Phone", LangChosen);
-        cout << "| " << left << setw(15) << clsLang::ToLang("AccountNumber", LangChosen);
-        cout << "| " << left << setw(10) << clsLang::ToLang("PinCode", LangChosen);
-        cout << "| " << left << setw(12) << clsLang::ToLang("balance", LangChosen);
+        cout << "| " << left << setw(40) << clsLang::ToLang("ClientName");
+        cout << "| " << left << setw(25) << clsLang::ToLang("Email");
+        cout << "| " << left << setw(12) << clsLang::ToLang("Phone");
+        cout << "| " << left << setw(15) << clsLang::ToLang("AccountNumber");
+        cout << "| " << left << setw(10) << clsLang::ToLang("PinCode");
+        cout << "| " << left << setw(12) << clsLang::ToLang("Balance");
+        
+        SetColor(2);
         cout << "\n_______________________________________________________________________________";
         cout << "_________________________________________________________________\n" << endl;
-
+        SetColor(7);
         if (_vClient.size() == 0)
-            cout << "\t\t\t\t" << clsLang::ToLang("NoClients",LangChosen) << "!";
+            cout << "\t\t\t\t" << clsLang::ToLang("NoClients") << "!";
 
         else
 
@@ -57,10 +59,10 @@ public:
                 _PrintClientRecordLine(Client);
                 cout << endl;
             }
-
+        SetColor(2);
         cout << "\n_______________________________________________________________________________";
         cout << "_________________________________________________________________\n" << endl;
-
+        SetColor(7);
 
 
     }

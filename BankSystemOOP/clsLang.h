@@ -10,14 +10,31 @@ static enLang LangChosen;
 
 class clsLang
 {
+private:
+
+    static enLang _ReadLang() {
+
+        cout << "The language? EN/FR - ";
+        string TheGlobalLang = clsInputValidate::ReadString();
+
+        if (clsString::LowerAllString(TheGlobalLang) == "fr") 
+            return enLang::enFR;
+        else
+            return enLang::enEN;
+    
+    }
     
 public:
-    static string ToLang(const string& key, enLang lang) {
-        if (lang == enLang::enEN)
+    clsLang(){
+        LangChosen = _ReadLang();
+    }
+
+    static string ToLang(const string& key) {
+        if (LangChosen == enLang::enEN)
             
             return EN.at(key);
 
-        if (lang == enLang::enFR)
+        if (LangChosen == enLang::enFR)
             return FR.at(key);
 
         return "Text not found";;

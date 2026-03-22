@@ -18,14 +18,16 @@ private :
 	};
     static short ReadManageUsersMenueOption()
     {
-        cout << setw(37) << left << "" << clsLang::ToLang("Choose16",LangChosen) << " ";
-        short Choice = clsInputValidate::ReadShortNumberBetween(1, 6, clsLang::ToLang("Enter16", LangChosen) + " ");
+        cout << setw(37) << left << "" << clsLang::ToLang("ChooseOption") << " [1-6] : " << " ";
+        short Choice = clsInputValidate::ReadNumberBetween<short>(1, 6, clsLang::ToLang("ChooseOption") + " [1-6] : ");
         return Choice;
     }
 
     static void _GoBackToManageUsersMenue()
     {
-        cout << "\n\n" << clsLang::ToLang("GoBackManageMenue",LangChosen) << "...";
+        SetColor(3);
+        cout << "\n\n" << clsLang::ToLang("GoBackManageMenue") << "...";
+        SetColor(7);
         system("pause>0");
         ShowManageUsersMenue();
     }
@@ -111,20 +113,20 @@ public:
         }
 
 		system("cls");
-		_DrawScreenHeader("\t" + clsLang::ToLang("ManageUSersMenue",LangChosen));
+		_DrawScreenHeader("\t" + clsLang::ToLang("ManageUsersScreen"));
 
-
-        cout << setw(37) << left << "" << "===========================================\n";
-        cout << setw(37) << left << "" << "\t\t  " << clsLang::ToLang("UsersMenue", LangChosen) << "\n";
-        cout << setw(37) << left << "" << "===========================================\n";
-        cout << setw(37) << left << "" << "\t[1] " << clsLang::ToLang("ListUsers", LangChosen) << ".\n";
-        cout << setw(37) << left << "" << "\t[2] " << clsLang::ToLang("NewUser", LangChosen) << ".\n";
-        cout << setw(37) << left << "" << "\t[3] " << clsLang::ToLang("DLTUser", LangChosen) << ".\n";
-        cout << setw(37) << left << "" << "\t[4] " << clsLang::ToLang("UPUser", LangChosen) << ".\n";
-        cout << setw(37) << left << "" << "\t[5] " << clsLang::ToLang("FIndUser", LangChosen) << ".\n";
-        cout << setw(37) << left << "" << "\t[6] "<< clsLang::ToLang("MainMenue",LangChosen) << ".\n";
-        cout << setw(37) << left << "" << "===========================================\n";
-
+        SetColor(3);
+        cout << setw(37) << left << "" << "==========================================================\n";
+        cout << setw(37) << left << "" << "\t\t  " << clsLang::ToLang("UsersMenu") << "\n";
+        cout << setw(37) << left << "" << "==========================================================\n";
+        cout << setw(37) << left << "" << "\t[1] " << clsLang::ToLang("UserList") << ".\n";
+        cout << setw(37) << left << "" << "\t[2] " << clsLang::ToLang("AddUser") << ".\n";
+        cout << setw(37) << left << "" << "\t[3] " << clsLang::ToLang("DeleteUser") << ".\n";
+        cout << setw(37) << left << "" << "\t[4] " << clsLang::ToLang("UpdateUser") << ".\n";
+        cout << setw(37) << left << "" << "\t[5] " << clsLang::ToLang("FindUser") << ".\n";
+        cout << setw(37) << left << "" << "\t[6] "<< clsLang::ToLang("MainMenu") << ".\n";
+        cout << setw(37) << left << "" << "==========================================================\n\n";
+        SetColor(7);
         _PerformManageUsersMenueOption((enManageUsersMenueOptions)ReadManageUsersMenueOption());
 
 

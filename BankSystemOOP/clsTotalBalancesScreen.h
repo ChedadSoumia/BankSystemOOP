@@ -18,24 +18,26 @@ private:
 public : 
     static void ShowTotalBalancesScreen()
     {
-        _DrawScreenHeader("\t Total Balances Screen");
+        _DrawScreenHeader("\t " + clsLang::ToLang("TotalBalancesScreen"));
 
         vector <clsBankClient> vClients = clsBankClient::GetClientsList();
 
         cout << "\n\t\t\t\t\tBalances List (" << vClients.size() << ") Client(s).";
+        SetColor(3);
         cout << "\n_______________________________________________________";
         cout << "_________________________________________\n" << endl;
-
-        cout << "| " << left << setw(15) << "Accout Number";
-        cout << "| " << left << setw(40) << "Client Name";
-        cout << "| " << left << setw(12) << "Balance";
+        SetColor(7);
+        cout << "| " << left << setw(15) << clsLang::ToLang("AccountNumber");
+        cout << "| " << left << setw(40) << clsLang::ToLang("FullName");
+        cout << "| " << left << setw(12) << clsLang::ToLang("Balance");
+        SetColor(3);
         cout << "\n_______________________________________________________";
         cout << "_________________________________________\n" << endl;
-
+        SetColor(7);
         double TotalBalances = clsBankClient::GetTotalBalances();
 
         if (vClients.size() == 0)
-            cout << "\t\t\t\tNo Clients Available In the System!";
+            cout << "\t\t\t\t" << clsLang::ToLang("NoClients");
         else
 
             for (clsBankClient Client : vClients)
@@ -43,11 +45,15 @@ public :
                 _PrintClientRecordBalanceLine(Client);
                 cout << endl;
             }
-
+        SetColor(3);
         cout << "\n_______________________________________________________";
         cout << "_________________________________________\n" << endl;
-        cout << "\t\t\t\t\t   Total Balances = " << TotalBalances << endl;
+        SetColor(2);
+        cout << "\t\t\t\t\t   " << clsLang::ToLang("TotalBalances") << " = " << TotalBalances << endl;
+        if(LangChosen == enLang::enEN) {
         cout << "\t\t\t\t\t   ( " << clsUtil::NumberToText(TotalBalances) << ")";
+        }
+        SetColor(7);
     }
 
 

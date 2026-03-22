@@ -23,8 +23,8 @@ protected:
         cout << "\n\n\t\t\t\t\------------------------------------------------------------------\n\n";
 
         SetColor(7);
-        cout << "\n\n\t\t\t\t\t " << clsLang::ToLang("UserEX1",LangChosen) << " : " << CurrentUser.UserName;
-        cout << "\n\n\t\t\t\t\t " << clsLang::ToLang("DateEX1", LangChosen) << " : " << clsDate::DateToString(clsDate());
+        cout << "\n\n\t\t\t\t\t " << clsLang::ToLang("UserName") << " : " << CurrentUser.UserName;
+        cout << "\n\n\t\t\t\t\t Date : " << clsDate::DateToString(clsDate());
         cout << "\n\n\n\n";
     }
 
@@ -34,7 +34,7 @@ protected:
         if (!CurrentUser.CheckAccessPermission(permission))
         {
             cout << "\t\t\t\t\t------------------------------------------------------------------";
-            cout << "\n\n\t\t\t\t\t " + clsLang::ToLang("AccessDenied",LangChosen);
+            cout << "\n\n\t\t\t\t\t " + clsLang::ToLang("AccessDenied");
             cout << "\n\t\t\t\t\t------------------------------------------------------------------\n\n";
             return false;
         }

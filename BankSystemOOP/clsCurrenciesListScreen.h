@@ -22,18 +22,24 @@ public:
     static void ShowCurrenciesListScreen() {
         vector <clsCurrency> _vCurrencies = clsCurrency::GetCurrenciesList();
 
-        string Title = "\t " + clsLang::ToLang("CurrenciesListScreen", LangChosen);
+        string Title = "\t " + clsLang::ToLang("CurrenciesListScreen");
         string SubTitle = "\t  (" + to_string(_vCurrencies.size()) + ") " +
-            clsLang::ToLang("Currencies", LangChosen);
+            clsLang::ToLang("Currencies");
         _DrawScreenHeader(Title, SubTitle);
-
-        cout << "| " << left << setw(30) << clsLang::ToLang("Country", LangChosen);
-        cout << "| " << left << setw(19) << clsLang::ToLang("CurrencyCode", LangChosen);
-        cout << "| " << left << setw(40) << clsLang::ToLang("CurrencyName", LangChosen);
-        cout << "| " << left << setw(12) << clsLang::ToLang("Rate", LangChosen);
+        
+        SetColor(3);
         cout << "\n___________________________________________________________";
         cout << "_________________________________________________________________\n" << endl;
+        SetColor(7);
 
+        cout << "| " << left << setw(30) << clsLang::ToLang("Country");
+        cout << "| " << left << setw(19) << clsLang::ToLang("CurrencyCode");
+        cout << "| " << left << setw(40) << clsLang::ToLang("CurrencyName");
+        cout << "| " << left << setw(12) << clsLang::ToLang("Rate");
+        SetColor(3);
+        cout << "\n___________________________________________________________";
+        cout << "_________________________________________________________________\n" << endl;
+        SetColor(7);
        
             for (clsCurrency& Currency : _vCurrencies)
             {
@@ -41,10 +47,10 @@ public:
                 _PrintCurrencyRecordLine(Currency);
                 cout << endl;
             }
-
+        SetColor(3);
         cout << "\n___________________________________________________________";
         cout << "_________________________________________________________________\n" << endl;
-
+        SetColor(7);
 
     }
 

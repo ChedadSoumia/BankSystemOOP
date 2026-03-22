@@ -25,8 +25,8 @@ private:
 	static short _ReadMainMenueOption() {
 		short Number;
 
-		cout << setw(37) << left << "" << clsLang::ToLang("ChooseOption",LangChosen) + " [1-10] : ";
-		Number = clsInputValidate::ReadShortNumberBetween(1, 10, clsLang::ToLang("ChooseOption", LangChosen) + " [1-10] : ");
+		cout << setw(37) << left << "" << clsLang::ToLang("ChooseOption") + " [1-10] : ";
+		Number = clsInputValidate::ReadNumberBetween<short>(1, 10, clsLang::ToLang("ChooseOption") + " [1-10] : ");
 
 		return Number;
 	}
@@ -34,17 +34,18 @@ private:
 	static void _GoBackToMainMenue() {
 
 
-		SetColor(2);
-		cout << setw(37) << left << "" << "\n\t" << clsLang::ToLang("PressAnyKey", LangChosen) << " " << 
-			clsLang::ToLang("MainMenu", LangChosen) << "...\n\n";
+		SetColor(3);
+		cout << setw(37) << left << "" << "\n\t" << clsLang::ToLang("PressAnyKey") << " " << 
+			clsLang::ToLang("MainMenu") << "...\n\n";
 		SetColor(7);
 		system("pause>0");
 		ShowMainMenue();
 	}
 	static void Logout()
 	{
-		CurrentUser = clsUser::Find("", "");
 		CurrentUser.SaveLoginLog("Logout");
+		CurrentUser = clsUser::Find("", "");
+		
 	}
 
 	static void _ShowAllClientScreen() {
@@ -178,22 +179,22 @@ private:
 public:
 	static void ShowMainMenue() {
 		system("cls");
-		_DrawScreenHeader("\t "+ clsLang::ToLang("welcome", LangChosen));
+		_DrawScreenHeader("\t "+ clsLang::ToLang("Welcome"));
 		SetColor(3);
 		cout << setw(37) << left << "" << "==========================================================\n";
-		cout << setw(37) << left << "" << "\t\t\t" << clsLang::ToLang("MainMenue", LangChosen) << ".\n";
-		cout << setw(37) << left << "" << "==============================================================\n";
-		cout << setw(37) << left << "" << "\t[1] " << clsLang::ToLang("ShowClients", LangChosen) << ".\n";
-		cout << setw(37) << left << "" << "\t[2] " << clsLang::ToLang("AddClient", LangChosen) << ".\n";
-		cout << setw(37) << left << "" << "\t[3] " << clsLang::ToLang("DeleteClient", LangChosen) << ".\n";
-		cout << setw(37) << left << "" << "\t[4] " << clsLang::ToLang("UpdateClient", LangChosen) << ".\n";
-		cout << setw(37) << left << "" << "\t[5] " << clsLang::ToLang("FindClient", LangChosen) << ".\n";
-		cout << setw(37) << left << "" << "\t[6] " << clsLang::ToLang("Transactions", LangChosen) << ".\n";
-		cout << setw(37) << left << "" << "\t[7] " << clsLang::ToLang("ManageUsers", LangChosen) << ".\n";
-		cout << setw(37) << left << "" << "\t[8] " << clsLang::ToLang("LoginLogoutRegister", LangChosen) << ".\n";
-		cout << setw(37) << left << "" << "\t[9] " << clsLang::ToLang("CurrencyExchangeMenu", LangChosen) << ".\n";
-		cout << setw(37) << left << "" << "\t[10] " << clsLang::ToLang("Logout", LangChosen) << ".\n";
+		cout << setw(37) << left << "" << "\t\t\t" << clsLang::ToLang("MainMenu") << ".\n";
 		cout << setw(37) << left << "" << "============================================================\n";
+		cout << setw(37) << left << "" << "\t[1] " << clsLang::ToLang("ShowClients") << ".\n";
+		cout << setw(37) << left << "" << "\t[2] " << clsLang::ToLang("AddClient") << ".\n";
+		cout << setw(37) << left << "" << "\t[3] " << clsLang::ToLang("DeleteClient") << ".\n";
+		cout << setw(37) << left << "" << "\t[4] " << clsLang::ToLang("UpdateClient") << ".\n";
+		cout << setw(37) << left << "" << "\t[5] " << clsLang::ToLang("FindClient") << ".\n";
+		cout << setw(37) << left << "" << "\t[6] " << clsLang::ToLang("Transactions") << ".\n";
+		cout << setw(37) << left << "" << "\t[7] " << clsLang::ToLang("ManageUsers") << ".\n";
+		cout << setw(37) << left << "" << "\t[8] " << clsLang::ToLang("LoginLogoutRegister") << ".\n";
+		cout << setw(37) << left << "" << "\t[9] " << clsLang::ToLang("CurrencyMenu") << ".\n";
+		cout << setw(37) << left << "" << "\t[10] " << clsLang::ToLang("Logout") << ".\n";
+		cout << setw(37) << left << "" << "============================================================\n\n";
 		SetColor(7);
 		_PerfromMainMenueOption((enMainMenueOptions)_ReadMainMenueOption());
 	}

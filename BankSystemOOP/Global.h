@@ -11,7 +11,9 @@ BOOL WINAPI ConsoleHandler(DWORD signal)
 {
     if (signal == CTRL_CLOSE_EVENT) 
     {
-        CurrentUser.SaveLoginLog("Logout");
+        if(!CurrentUser.IsEmpty()){
+            CurrentUser.SaveLoginLog("Logout");
+        }
         Sleep(2000); 
         return TRUE;
     }

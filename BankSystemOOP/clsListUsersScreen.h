@@ -27,25 +27,28 @@ public:
     {
         vector <clsUser> vUsers = clsUser::GetUsersList();
 
-        string Title = "\t" + clsLang::ToLang("UserList",LangChosen) + "";
-        string SubTitle = "\t    (" + to_string(vUsers.size()) + ") " + clsLang::ToLang("User-s", LangChosen)+ ".";
+        string Title = "\t" + clsLang::ToLang("UserList") + "";
+        string SubTitle = "\t    (" + to_string(vUsers.size()) + ") " + clsLang::ToLang("User-s")+ ".";
 
         _DrawScreenHeader(Title, SubTitle);
-
+        SetColor(3);
         cout << setw(8) << left << "" << "\n\t_______________________________________________________";
         cout << "______________________________________________\n" << endl;
+        SetColor(7);
+        cout << setw(8) << left << "" << "| " << left << setw(12) << clsLang::ToLang("UserName");
+        cout << "| " << left << setw(25) << clsLang::ToLang("FullName");
+        cout << "| " << left << setw(12) << clsLang::ToLang("Phone");
+        cout << "| " << left << setw(20) << clsLang::ToLang("Email");
+        cout << "| " << left << setw(10) << clsLang::ToLang("Password");
+        cout << "| " << left << setw(12) << clsLang::ToLang("Permissions");
 
-        cout << setw(8) << left << "" << "| " << left << setw(12) << clsLang::ToLang("UserName", LangChosen);
-        cout << "| " << left << setw(25) << clsLang::ToLang("FullName", LangChosen);
-        cout << "| " << left << setw(12) << clsLang::ToLang("Phone", LangChosen);
-        cout << "| " << left << setw(20) << clsLang::ToLang("Email", LangChosen);
-        cout << "| " << left << setw(10) << clsLang::ToLang("Password", LangChosen);
-        cout << "| " << left << setw(12) << clsLang::ToLang("Permissions", LangChosen);
+        SetColor(3);
         cout << setw(8) << left << "" << "\n\t_______________________________________________________";
         cout << "______________________________________________\n" << endl;
+        SetColor(7);
 
         if (vUsers.size() == 0)
-            cout << "\t\t\t\t" << clsLang::ToLang("NoUsers", LangChosen) ;
+            cout << "\t\t\t\t" << clsLang::ToLang("NoUsers") ;
         else
 
             for (clsUser User : vUsers)
@@ -55,8 +58,10 @@ public:
                 cout << endl;
             }
 
+        SetColor(3);
         cout << setw(8) << left << "" << "\n\t_______________________________________________________";
         cout << "______________________________________________\n" << endl;
+        SetColor(7);
     }
 
 

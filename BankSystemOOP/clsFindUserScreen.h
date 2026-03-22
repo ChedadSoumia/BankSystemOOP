@@ -11,17 +11,19 @@ class clsFindUserScreen :protected clsScreen
 private:
     static void _PrintUser(clsUser User)
     {
-        cout << "\n" << clsLang::ToLang("UserCard", LangChosen) << ":";
+        SetColor(3);
+        cout << "\n" << clsLang::ToLang("UserCard") << ":";
         cout << "\n___________________";
-        cout << "\n" << clsLang::ToLang("FirstName", LangChosen) << ":" << User.FirstName;
-        cout << "\n" << clsLang::ToLang("LastName", LangChosen) << ": " << User.LastName;
-        cout << "\n" << clsLang::ToLang("FullName", LangChosen) << " : " << User.FullName();
-        cout << "\n" << clsLang::ToLang("Email", LangChosen) << " : " << User.Email;
-        cout << "\n" << clsLang::ToLang("Phone", LangChosen) << " : " << User.Phone;
-        cout << "\n" << clsLang::ToLang("UserName", LangChosen) << " : " << User.UserName;
-        cout << "\n" << clsLang::ToLang("Password", LangChosen) << " : " << User.Password;
-        cout << "\n" << clsLang::ToLang("Permissions", LangChosen) << " : " << User.Permissions;
+        cout << "\n" << clsLang::ToLang("FirstName") << ":" << User.FirstName;
+        cout << "\n" << clsLang::ToLang("LastName") << ": " << User.LastName;
+        cout << "\n" << clsLang::ToLang("FullName") << " : " << User.FullName();
+        cout << "\n" << clsLang::ToLang("Email") << " : " << User.Email;
+        cout << "\n" << clsLang::ToLang("Phone") << " : " << User.Phone;
+        cout << "\n" << clsLang::ToLang("UserName") << " : " << User.UserName;
+        cout << "\n" << clsLang::ToLang("Password") << " : " << User.Password;
+        cout << "\n" << clsLang::ToLang("Permissions") << " : " << User.Permissions;
         cout << "\n___________________\n";
+        SetColor(7);
 
     }
 
@@ -30,15 +32,17 @@ public:
     static void ShowFindUserScreen()
     {
 
-        _DrawScreenHeader("\t  "+ clsLang::ToLang("FUScreen", LangChosen));
+        _DrawScreenHeader("\t  "+ clsLang::ToLang("FindUserScreen"));
 
         string UserName;
-        cout << "\n" << clsLang::ToLang("EnterUser", LangChosen) << "!\n";
+        cout << "\n" << clsLang::ToLang("EnterUsername") << "? ";
         UserName = clsInputValidate::ReadString();
 
         while (!clsUser::IsUserExist(UserName))
         {
-            cout << "\n" << clsLang::ToLang("UsernameUsed", LangChosen) << "!\n";
+            SetColor(14);
+            cout << "\n" << clsLang::ToLang("UserNotFound") << "? ";
+            SetColor(7);
             UserName = clsInputValidate::ReadString();
         }
 
@@ -47,14 +51,19 @@ public:
 
         if (!User1.IsEmpty())
         {
-            cout << "\n" << clsLang::ToLang("UserF",LangChosen) << " :-)\n";
+            SetColor(2);
+            cout << "\n" << clsLang::ToLang("UserFound") << " :-)\n";
+            SetColor(7);
+            _PrintUser(User1);
         }
         else
         {
-            cout << "\n" << clsLang::ToLang("UserNotF", LangChosen) << ":-(\n";
+            SetColor(12);
+            cout << "\n" << clsLang::ToLang("UserNotFound") << ":-(\n";
+            SetColor(7);
         }
 
-        _PrintUser(User1);
+        
 
     }
 

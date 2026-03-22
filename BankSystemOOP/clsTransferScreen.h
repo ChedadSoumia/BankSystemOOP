@@ -9,12 +9,14 @@ class clsTransferScreen : protected clsScreen
 private:
     static void _Print(clsBankClient Client)
     {
-        cout << "\n" << clsLang::ToLang("ClientCard", LangChosen) << " :";
+        SetColor(3);
+        cout << "\n" << clsLang::ToLang("ClientCard") << " :";
         cout << "\n___________________";
-        cout << "\n" << clsLang::ToLang("FullName", LangChosen) << " : " << Client.FirstName << " "<< Client.LastName;
-        cout << "\n" << clsLang::ToLang("AccountNumber", LangChosen) << " : " << Client.GetAccountNumber();
-        cout << "\n" << clsLang::ToLang("balance", LangChosen) << " : " << Client.AccountBalance;
+        cout << "\n" << clsLang::ToLang("FullName") << " : " << Client.FirstName << " "<< Client.LastName;
+        cout << "\n" << clsLang::ToLang("AccountNumber") << " : " << Client.GetAccountNumber();
+        cout << "\n" << clsLang::ToLang("Balance") << " : " << Client.AccountBalance;
         cout << "\n___________________\n";
+        SetColor(7);
 
     }
 
@@ -24,7 +26,9 @@ private:
         AccountNumber = clsInputValidate::ReadString();
 
         while (!clsBankClient::IsClientExist(AccountNumber)) {
-            cout << "\n" << clsLang::ToLang("ClientNotFound", LangChosen) << " : ";
+            SetColor(14);
+            cout << "\n" << clsLang::ToLang("ClientNotFound") << " : ";
+            SetColor(7);
             AccountNumber = clsInputValidate::ReadString();
         }
         return AccountNumber;
@@ -40,13 +44,15 @@ private:
 
     static double _ReadAmount(clsBankClient &SourceClient) {
         double Amount;
-        cout << "\n" << clsLang::ToLang("EnterTransferAmount", LangChosen) << " : ";
-        Amount = clsInputValidate::ReadDblNumber();
+        cout << "\n" << clsLang::ToLang("EnterAmount") << " : ";
+        Amount = clsInputValidate::ReadNumber<double>();
 
         while (Amount > SourceClient.AccountBalance)
         {
-            cout << "\n" << clsLang::ToLang("AmountExceedsBalance", LangChosen) << " ?  ";
-            Amount = clsInputValidate::ReadDblNumber();
+            SetColor(14);
+            cout << "\n" << clsLang::ToLang("AmountExceeds") << " ?  ";
+            SetColor(7);
+            Amount = clsInputValidate::ReadNumber<double>();
         }
         return Amount;
     }
@@ -57,13 +63,13 @@ private:
 public:
 	static void ShowTransferScreen() {
 		system("cls");
-		_DrawScreenHeader("\t " + clsLang::ToLang("TransferScreen", LangChosen));
+		_DrawScreenHeader("\t " + clsLang::ToLang("TransferScreen"));
 	
-        cout << "\n" << clsLang::ToLang("EnterAccountToTransferFrom", LangChosen) << ": ";
+        cout << "\n" << clsLang::ToLang("EnterFromAccount") << ": ";
         clsBankClient SourceClient = _ReadClient();
         _Print(SourceClient);
 
-        cout << "\n" << clsLang::ToLang("EnterAccountToTransferTo", LangChosen) << ": ";
+        cout << "\n" << clsLang::ToLang("EnterToAccount") << ": ";
         clsBankClient DestinationClient = _ReadClient();
         _Print(DestinationClient);
 
@@ -73,19 +79,19 @@ public:
 
 
         char Answer = 'n';
-        cout << "\n" << clsLang::ToLang("ConfirmOperation", LangChosen) << "[y/n] ?  ";
+        cout << "\n" << clsLang::ToLang("ConfirmOperation") << "[y/n] ?  ";
         cin >> Answer;
 
         if (Answer == 'Y' || Answer == 'y') {
             
 
             if (SourceClient.Transfer(TransferAmount, DestinationClient,CurrentUser.UserName)) {
-                cout << "\n" << clsLang::ToLang("TransferSuccess", LangChosen) << ".";
+                cout << "\n" << clsLang::ToLang("TransferSuccess") << ".";
                 _Print(SourceClient);
                 _Print(DestinationClient);
             }
             else {
-                cout << "\n" << clsLang::ToLang("TransferFailed", LangChosen) << ".";
+                cout << "\n" << clsLang::ToLang("TransferFailed") << ".";
             }
 
         }

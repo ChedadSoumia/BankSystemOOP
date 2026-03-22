@@ -6,6 +6,7 @@
 #include "clsCurrenciesListScreen.h"
 #include "clsFindCurrencyScreen.h"
 #include "clsUpdateCurrencyRateScreen.h"
+#include "clsCurrencyCalculatorScreen.h"
 
 
 
@@ -19,17 +20,17 @@ class clsCurrencyMainScreen : protected clsScreen
 	static short _ReadCurrencyMenueOption() {
 		short Number;
 
-		cout << setw(37) << left << "" << clsLang::ToLang("ChooseOption", LangChosen) + " [1-9] : ";
-		Number = clsInputValidate::ReadShortNumberBetween(1, 5, clsLang::ToLang("ChooseOption", LangChosen) + " [1-9] : ");
+		cout << setw(37) << left << "" << clsLang::ToLang("ChooseOption") + " [1-5] : ";
+		Number = clsInputValidate::ReadNumberBetween<short>(1, 5, clsLang::ToLang("ChooseOption") + " [1-5] : ");
 
 		return Number;
 	}
 
 	static void _GoBackToCurrencyMenue() {
-
-		cout << setw(37) << left << "" << "\n\t" << clsLang::ToLang("BackToCurrenciesMenu", LangChosen) << " ...\n\n";
+		SetColor(3);
+		cout << setw(37) << left << "" << "\n\t" << clsLang::ToLang("BackToCurrenciesMenu") << " ...\n\n";
 		system("pause>0");
-
+		SetColor(7);
 		ShowCurrencyMainScreen();
 	}
 
@@ -52,7 +53,7 @@ class clsCurrencyMainScreen : protected clsScreen
 
 	static void _ShowCurrencyCalculatorScreen()
 	{
-		cout << "\nCurrency Calculator Screen Will Be Here.\n";
+		clsCurrencyCalculatorScreen::ShowCurrencyCalculatorScreen();
 
 	}
 
@@ -91,17 +92,19 @@ class clsCurrencyMainScreen : protected clsScreen
 public:
 	static void ShowCurrencyMainScreen() {
 		system("cls");
-		_DrawScreenHeader("\t " + clsLang::ToLang("CurrencyExchangeMainScreen", LangChosen));
+		_DrawScreenHeader("\t " + clsLang::ToLang("CurrencyMenu"));
 
-		cout << setw(37) << left << "" << "===========================================\n";
-		cout << setw(37) << left << "" << "\t\t\t" << clsLang::ToLang("CurrencyExchangeMenu", LangChosen) << ".\n";
-		cout << setw(37) << left << "" << "===========================================\n";
-		cout << setw(37) << left << "" << "\t[1] " << clsLang::ToLang("ListCurrencies", LangChosen) << ".\n";
-		cout << setw(37) << left << "" << "\t[2] " << clsLang::ToLang("FindCurrency", LangChosen) << ".\n";
-		cout << setw(37) << left << "" << "\t[3] " << clsLang::ToLang("UpdateRate", LangChosen) << ".\n";
-		cout << setw(37) << left << "" << "\t[4] " << clsLang::ToLang("CurrencyCalculator", LangChosen) << ".\n";
-		cout << setw(37) << left << "" << "\t[5] " << clsLang::ToLang("MainMenue", LangChosen) << ".\n";
-		cout << setw(37) << left << "" << "===========================================\n";
+		SetColor(3);
+		cout << setw(37) << left << "" << "==========================================================\n";
+		cout << setw(37) << left << "" << "\t\t\t" << clsLang::ToLang("CurrencyMenu") << ".\n";
+		cout << setw(37) << left << "" << "==========================================================\n";
+		cout << setw(37) << left << "" << "\t[1] " << clsLang::ToLang("ListCurrencies") << ".\n";
+		cout << setw(37) << left << "" << "\t[2] " << clsLang::ToLang("FindCurrency") << ".\n";
+		cout << setw(37) << left << "" << "\t[3] " << clsLang::ToLang("UpdateRate") << ".\n";
+		cout << setw(37) << left << "" << "\t[4] " << clsLang::ToLang("CurrencyCalculator") << ".\n";
+		cout << setw(37) << left << "" << "\t[5] " << clsLang::ToLang("MainMenu") << ".\n";
+		cout << setw(37) << left << "" << "==========================================================\n\n";
+		SetColor(7);
 
 		_PerfromMainMenueOption((enCurrencyMenueOptions)_ReadCurrencyMenueOption());
 	}

@@ -140,5 +140,8 @@
     <ClInclude Include="clsUpdateCurrencyRateScreen.h">
       <Filter>Header Files\Screens\Currency</Filter>
     </ClInclude>
+    <ClInclude Include="clsCurrencyCalculatorScreen.h">
+      <Filter>Header Files\Screens\Currency</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -26,16 +26,18 @@ public:
             }
         }
         system("cls");
-		_DrawScreenHeader(clsLang::ToLang("LoginLogoutRegisterS",LangChosen));
+		_DrawScreenHeader(clsLang::ToLang("LoginLogoutRegisterScreen"));
 
-        cout << "| " << left << setw(40) << clsLang::ToLang("DateTime", LangChosen);
-        cout << "| " << left << setw(20) << clsLang::ToLang("UserName", LangChosen);
-        cout << "| " << left << setw(12) << clsLang::ToLang("Password", LangChosen);
-        cout << "| " << left << setw(10) << clsLang::ToLang("Permissions", LangChosen);
+        cout << "| " << left << setw(40) << clsLang::ToLang("DateTime");
+        cout << "| " << left << setw(20) << clsLang::ToLang("UserName");
+        cout << "| " << left << setw(12) << clsLang::ToLang("Password");
+        cout << "| " << left << setw(10) << clsLang::ToLang("Permissions");
         cout << "| " << left << setw(12) << "Action";
+        
+        SetColor(3);
         cout << "\n___________________________________________________________";
         cout << "_________________________________________________________________\n" << endl;
-
+        SetColor(7);
         vector<clsUser::stLoginLogout> vActions = clsUser::GetLoginLogoutRegisterList();
 	    
 
@@ -46,10 +48,10 @@ public:
                 _PrintActionRecordLine(vAction);
                 cout << endl;
             }
-
+        SetColor(3);
         cout << "\n___________________________________________________________";
         cout << "_________________________________________________________________\n" << endl;
-
+        SetColor(7);
 
 	}
 

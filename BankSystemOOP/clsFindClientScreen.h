@@ -9,17 +9,18 @@ class clsFindClientScreen : protected clsScreen
 private:
     static void _Print(clsBankClient Client)
     {
-        cout << "\n" << clsLang::ToLang("ClientCard", LangChosen) << " :";
+        SetColor(13);
+        cout << "\n" << clsLang::ToLang("ClientCard") << " :";
         cout << "\n___________________";
-        cout << "\n" << clsLang::ToLang("FirstName", LangChosen) << " : " << Client.FirstName;
-        cout << "\n" << clsLang::ToLang("LastName", LangChosen) << " : " << Client.LastName;
-        cout << "\n" << clsLang::ToLang("Email", LangChosen) << " : " << Client.Email;
-        cout << "\n" << clsLang::ToLang("Phone", LangChosen) << " : " << Client.Phone;
-        cout << "\n" << clsLang::ToLang("AccountNumber", LangChosen) << " : " << Client.GetAccountNumber();
-        cout << "\n" << clsLang::ToLang("PinCode", LangChosen) << " : " << Client.PinCode;
-        cout << "\n" << clsLang::ToLang("Balance", LangChosen) << " : " << Client.AccountBalance;
+        cout << "\n" << clsLang::ToLang("FirstName") << " : " << Client.FirstName;
+        cout << "\n" << clsLang::ToLang("LastName") << " : " << Client.LastName;
+        cout << "\n" << clsLang::ToLang("Email") << " : " << Client.Email;
+        cout << "\n" << clsLang::ToLang("Phone") << " : " << Client.Phone;
+        cout << "\n" << clsLang::ToLang("AccountNumber") << " : " << Client.GetAccountNumber();
+        cout << "\n" << clsLang::ToLang("PinCode") << " : " << Client.PinCode;
+        cout << "\n" << clsLang::ToLang("Balance") << " : " << Client.AccountBalance;
         cout << "\n___________________\n";
-
+        SetColor(7);
     }
 
 public:
@@ -32,20 +33,24 @@ public:
             }
         }
 
-        _DrawScreenHeader(clsLang::ToLang("FINDCSc",LangChosen));
+        _DrawScreenHeader(clsLang::ToLang("FindClientScreen"));
         string AccountNumber = "";
-        cout << "\n" << clsLang::ToLang("EnterNumClient", LangChosen) << ": ";
+        cout << "\n" << clsLang::ToLang("EnterNumClient") << ": ";
         AccountNumber = clsInputValidate::ReadString();
 
         while (!clsBankClient::IsClientExist(AccountNumber)) {
-            cout << "\n" << clsLang::ToLang("ClientNotFound", LangChosen) << " : ";
+            SetColor(14);
+            cout << "\n" << clsLang::ToLang("ClientNotFound") << " : ";
+            SetColor(7);
             AccountNumber = clsInputValidate::ReadString();
         }
 
         clsBankClient Client = clsBankClient::Find(AccountNumber);
 
         if (!Client.IsEmpty()) {
-            cout << "\n" << clsLang::ToLang("ClintFound",LangChosen) << " :-)\n";
+            SetColor(2);
+            cout << "\n" << clsLang::ToLang("ClientFound") << " :-)\n";
+            SetColor(7);
             _Print(Client);
         }
         

@@ -49,24 +49,24 @@ private:
             {
                 Trials--;
                 SetColor(12);
-                cout << "\n[!] " << clsLang::ToLang("InvalisUP", LangChosen) << "\n";
-                cout << "[*] " << Trials << " " << clsLang::ToLang("TrialsLogin", LangChosen) << " \n\n";
+                cout << "\n[!] " << clsLang::ToLang("InvalidLogin") << "\n";
+                cout << "[*] " << Trials << " " << clsLang::ToLang("LoginTrials") << " \n\n";
                 SetColor(7);
             }
 
             if (Trials == 0)
             {
                 SetColor(12);
-                cout << "\n" << clsLang::ToLang("FailedTrials", LangChosen) << " \n\n";
+                cout << "\n" << clsLang::ToLang("AccountLocked") << " \n\n";
                 SetColor(7);
                 return false;
             }
 
 
-            cout << left << setw(12) << clsLang::ToLang("EUser",LangChosen);
+            cout << left << setw(12) << clsLang::ToLang("EnterUsername") << " : ";
             cin >> Username;
 
-            cout << left << setw(12) << clsLang::ToLang("EPass", LangChosen);
+            cout << left << setw(12) << clsLang::ToLang("EnterPassword") << " : ";
             Password = _GetPassword();
 
             CurrentUser = clsUser::Find(Username, Password);
@@ -88,7 +88,7 @@ public:
     {
         system("cls");
         
-        _DrawScreenHeader("\t " + clsLang::ToLang("LoginScreen", LangChosen));
+        _DrawScreenHeader("\t " + clsLang::ToLang("LoginScreen"));
         
         
         return _Login();
