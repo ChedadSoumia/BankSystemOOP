@@ -1,4 +1,4 @@
-# Banking system :
+# Bank system :
 
 A Console-Based Banking System developed in C++ using Object-Oriented Programming (OOP) principles.
 
